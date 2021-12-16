@@ -68,7 +68,7 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
         <div className="hidden md:block">
           <img
             src={LogoBanner}
-            className="max-h-28"
+            className="max-h-20"
             alt="Lukas Germerott Logo"
           />
         </div>
@@ -76,7 +76,7 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
         <Navigation />
       </header>
       <main>
-        <div className="bg-background h-screen pt-36">{children}</div>
+        <div className="bg-background h-screen pt-32">{children}</div>
       </main>
     </div>
   );
