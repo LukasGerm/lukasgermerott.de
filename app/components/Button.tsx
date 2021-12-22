@@ -36,7 +36,9 @@ const Button = (props: React.PropsWithChildren<ButtonProps>) => {
     return (
       <Link
         to={props.link}
-        className={"inline-flex items-center  " + className}
+        className={
+          "inline-flex items-center focus:outline-primaryHover  " + className
+        }
       >
         <Typography>{props.children}</Typography>
       </Link>

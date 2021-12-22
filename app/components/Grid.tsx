@@ -2,6 +2,7 @@ import React from "react";
 
 interface GridProps {
   className?: string;
+  cols?: "grid-cols-6" | "grid-cols-4";
 }
 
 /**
@@ -10,12 +11,17 @@ interface GridProps {
  * @returns
  */
 const Grid = (props: React.PropsWithChildren<GridProps>) => {
-  let className = "grid grid-cols-6 ";
+  let className = "grid ";
+
+  if (!props.cols) {
+    className += " grid-cols-6 ";
+  } else {
+    className += props.cols + " ";
+  }
 
   if (props.className) {
     className += props.className;
   }
-
   return <div className={className}>{props.children}</div>;
 };
 
