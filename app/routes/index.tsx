@@ -4,7 +4,7 @@ import Container from "~/components/Container";
 import Grid, { GridItem } from "~/components/Grid";
 import Typography from "~/components/Typography";
 import HomeDrawing from "../assets/home_drawing.svg";
-// https://remix.run/api/conventions#meta
+
 export let meta: MetaFunction = () => {
   return {
     title: "Home | Lukas Germerott",

@@ -14,11 +14,14 @@
   "dependencies": {
     "@remix-run/react": "^1.1.1",
     "@remix-run/serve": "^1.1.1",
+    "@tailwindcss/forms": "^0.4.0",
+    "date-fns": "^2.27.0",
     "front-matter": "^4.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remix": "^1.0.4",
-    "showdown": "^1.9.1"
+    "showdown": "^1.9.1",
+    "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.1.1",

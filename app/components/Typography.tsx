@@ -1,7 +1,7 @@
 import React from "react";
 
 interface TypographyProps {
-  variant?: "p" | "h1" | "h2" | "h3";
+  variant?: "p" | "h1" | "h2" | "h3" | "h4";
   /**
    * Classname which gets added to default one
    */
@@ -30,7 +30,10 @@ const Typography = (props: React.PropsWithChildren<TypographyProps>) => {
     return <h2 className={className + " text-4xl"}>{props.children}</h2>;
   }
   if (props.variant === "h3") {
-    return <h2 className={className + " text-2xl"}>{props.children}</h2>;
+    return <h3 className={className + " text-2xl"}>{props.children}</h3>;
+  }
+  if (props.variant === "h4") {
+    return <h3 className={className + " text-xl"}>{props.children}</h3>;
   }
 
   return <p className={className}>{props.children}</p>;

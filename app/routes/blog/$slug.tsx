@@ -1,5 +1,6 @@
 import { LoaderFunction, useLoaderData } from "remix";
-import { getPost, Post } from "~/services/posts/posts";
+import { getPost } from "~/services/posts/posts";
+import { Post } from "~/services/posts/types/Post";
 
 /**
  * Gets a single post
