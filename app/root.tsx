@@ -56,6 +56,10 @@ function Document({
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
+        <script
+          src="https://t6ed4be50.emailsys1a.net/form/174/3747/4f16a0069a/popup.js?_g=1640262952"
+          async
+        ></script>
       </body>
     </html>
   );
