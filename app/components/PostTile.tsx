@@ -22,6 +22,7 @@ const PostTile = (props: PostTileProps) => {
         <div className="bg-card rounded-2xl cursor-pointer">
           <div className="hover:blur-sm ">
             <img
+              loading="lazy"
               className="h-96 object-cover rounded-2xl select-none"
               src={post.spoilerImageLink}
             />

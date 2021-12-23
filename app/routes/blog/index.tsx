@@ -1,17 +1,9 @@
-import {
-  useCatch,
-  Link,
-  json,
-  useLoaderData,
-  Outlet,
-  MetaFunction,
-} from "remix";
+import { useLoaderData, MetaFunction } from "remix";
 
 import type { LoaderFunction } from "remix";
 import { getPosts } from "~/services/posts/posts";
 import { Post } from "~/services/posts/types/Post";
 import Typography from "~/components/Typography";
-import Input from "~/components/Input";
 import PostTile from "~/components/PostTile";
 import Grid from "~/components/Grid";
 import Search from "~/components/Search";
@@ -25,8 +17,8 @@ export let meta: MetaFunction = () => {
 
 export let loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
-  console.log(url.searchParams);
-  return getPosts();
+  const search = url.searchParams.get("search");
+  return getPosts(search);
 };
 
 export default function BlogList() {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, useFetcher, useSubmit } from "remix";
+import { Form, useSubmit } from "remix";
 import Input from "./Input";
 
 /**
@@ -7,17 +7,16 @@ import Input from "./Input";
  * @returns
  */
 const Search = () => {
-  const posts = useFetcher();
+  const submit = useSubmit();
 
   return (
-    <div className="flex justify-center mt-10">
+    <div className="max-w-sm mr-auto ml-auto mt-10">
       <Form method="get">
         <Input
           name="search"
           placeholder="Search"
-          className="max-w-sm"
           onChange={(e) => {
-            posts.submit(e.currentTarget.form);
+            submit(e.currentTarget.form);
           }}
         />
       </Form>

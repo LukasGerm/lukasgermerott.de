@@ -19,12 +19,22 @@ export async function getPost(slugName: string) {
 
   return posts.find((post) => post.slug === slugName);
 }
+/**
+ * Filters posts
+ * @param posts
+ * @param search
+ */
+function filterPosts(posts: Post[], search: string) {
+  return posts.filter(
+    (post) => post.slug.includes(search) || post.title.includes(search)
+  );
+}
 
 /**
  * Gets all posts
- * @returns
+ * @param search the search value to filter
  */
-export async function getPosts() {
+export async function getPosts(search?: string | null): Promise<Post[]> {
   let postsPath = path.join(__dirname, "../app/posts");
 
   let dir = await fs.readdir(postsPath);
@@ -47,5 +57,7 @@ export async function getPosts() {
         spoilerImageLink: attr.spoilerImageLink,
       } as Post;
     })
-  );
+  ).then((posts) => {
+    return search ? filterPosts(posts, search) : posts;
+  });
 }
