@@ -5,6 +5,7 @@ interface InputProps {
   placeholder?: string;
   className?: string;
   name: string;
+  value: string;
 }
 
 /**
@@ -16,6 +17,7 @@ const Input = (props: InputProps) => {
     <input
       type="text"
       name={props.name}
+      value={props.value}
       className={
         "relative rounded-3xl py-4 px-3 w-full border border-grey-200 focus:border-primary focus:ring-1 focus:ring-opacity-50 focus:ring-primary bg-background shadow text-base text-gray-200 placeholder-gray-400 " +
         props.className
