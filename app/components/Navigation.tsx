@@ -92,8 +92,8 @@ const Navigation = () => {
             </Link>
           </li>
           <li className="mr-10 ">
-            <Link to="/work">
-              <Typography hover>My Work</Typography>
+            <Link to="/aboutme">
+              <Typography hover>About Me</Typography>
             </Link>
           </li>
           <li className="">
@@ -118,8 +118,8 @@ const Navigation = () => {
             <Divider />
 
             <li className="p-2" onClick={handleClose}>
-              <Link to="/work">
-                <Typography hover>My Work</Typography>
+              <Link to="/aboutme">
+                <Typography hover>About Me</Typography>
               </Link>
             </li>
             <Divider />
