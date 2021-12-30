@@ -14,12 +14,14 @@ import type { LinksFunction } from "remix";
 import LogoBanner from "./assets/Banner.png";
 import styles from "./styles/app.css";
 import Navigation from "./components/Navigation";
+import Favicon from "./assets/favicon.png";
 import highlight from "highlight.js/styles/atom-one-dark.css";
 
 export let links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: highlight },
     { rel: "stylesheet", href: styles },
+    { rel: "icon", href: Favicon },
   ];
 };
 
