@@ -33,8 +33,8 @@ export default function Index() {
               magna aliquyam erat, sed diam.
             </Typography>
             <div className="pt-8 flex">
-              <Button large color="primary">
-                Get in touch
+              <Button large link="/aboutme" color="primary">
+                About Me
               </Button>
               <Button large link="/blog" className="ml-8">
                 To my Blog
