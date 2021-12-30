@@ -3,7 +3,8 @@ import { Link } from "remix";
 import Typography from "./Typography";
 import Favicon from "../assets/favicon.png";
 import Divider from "./Divider";
-
+import ExternalLink from "./ExternalLink";
+import GithubPicture from "../assets/github.png";
 interface IconProps {
   onClick?(): void;
 }
@@ -96,10 +97,15 @@ const Navigation = () => {
               <Typography hover>About Me</Typography>
             </Link>
           </li>
-          <li className="">
+          <li className="mr-10">
             <Link to="/imprint">
               <Typography hover>Imprint</Typography>
             </Link>
+          </li>
+          <li>
+            <ExternalLink href="https://github.com/LukasGerm">
+              <img src={GithubPicture} className="max-h-8" />
+            </ExternalLink>
           </li>
         </ul>
         <div className={(!mobileOpen ? "hidden" : "") + " md:hidden"}>
@@ -128,6 +134,11 @@ const Navigation = () => {
               <Link to="/imprint">
                 <Typography hover>Imprint</Typography>
               </Link>
+            </li>
+            <li className="p-2" onClick={handleClose}>
+              <ExternalLink href="https://github.com/LukasGerm">
+                <img src={GithubPicture} className="max-h-8" />
+              </ExternalLink>
             </li>
           </ul>
         </div>

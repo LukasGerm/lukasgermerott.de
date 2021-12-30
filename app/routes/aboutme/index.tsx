@@ -5,6 +5,8 @@ import Typography from "~/components/Typography";
 import ProfilePicture from "../../assets/profile.jpg";
 import NewstopiaMockup from "../../assets/newstopia_mockup.png";
 import MoreToCome from "../../assets/more_come.svg";
+import Button from "~/components/Button";
+import ExternalLink from "~/components/ExternalLink";
 export let meta: MetaFunction = () => {
   return {
     title: "About Me | Lukas Germerott",
@@ -25,15 +27,15 @@ export default function AboutMe() {
               <img className="rounded-full max-h-52" src={ProfilePicture} />
               <div className="md:ml-24 mt-5 md:mt-0">
                 <Typography className="font-semibold">
-                  Lukas Germerott
+                  Hi I'm Lukas Germerott
                 </Typography>
                 <Typography className="font-light leading-relaxed">
-                  magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-                  et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
-                  ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                  nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
+                  I am a frontend engineer from germany. I work in the industry
+                  for about four years now. I would consider myself as a
+                  professional frontend and react developer. I have started my
+                  own business in 2018 and since 2020 I am doing fulltime
+                  software engineering at a company here in germany. I love User
+                  Interfaces and User Experience.
                 </Typography>
               </div>
             </div>
@@ -44,13 +46,18 @@ export default function AboutMe() {
               <div className="md:mr-24">
                 <Typography className="font-semibold">Newstopia</Typography>
                 <Typography className="font-light leading-relaxed">
-                  magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-                  et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
-                  ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                  nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
+                  Newstopia is one of my more recent journeys. I have started to
+                  feel that I am not watching enough technologies for my
+                  wellbeing, so I took a look at flutter. This project is a work
+                  in progress and will get additional features soon. At this
+                  moment it just shows the latest news.
                 </Typography>
+                <ExternalLink
+                  href="https://github.com/LukasGerm/newstopia"
+                  className="mt-5"
+                >
+                  Visit Github
+                </ExternalLink>
               </div>
               <img className="max-h-96 md:mt-0 mt-5" src={NewstopiaMockup} />
             </div>

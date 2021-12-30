@@ -26,11 +26,9 @@ export default function Index() {
               variant="h3"
               className="pt-4 leading-relaxed font-light"
             >
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam. Lorem ipsum dolor sit amet, consetetur sadipscing
-              elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-              magna aliquyam erat, sed diam.
+              I want to help to make the web a better and more useable place
+              with my knowledge and my ideas. Read about my journeys and find
+              useful tips below on my blog.
             </Typography>
             <div className="pt-8 flex">
               <Button large link="/aboutme" color="primary">
