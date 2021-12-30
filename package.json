@@ -1,8 +1,9 @@
 {
   "private": true,
-  "name": "remix-app-template",
-  "description": "",
-  "license": "",
+  "name": "lukasgermerott.de",
+  "description": "Homepage of lukas germerott",
+  "license": "GPL",
+  "version": "1.0",
   "scripts": {
     "build": "npm run build:css && remix build",
     "dev": "remix dev",
