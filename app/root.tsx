@@ -16,6 +16,7 @@ import styles from "./styles/app.css";
 import Navigation from "./components/Navigation";
 import Favicon from "./assets/favicon.png";
 import highlight from "highlight.js/styles/atom-one-dark.css";
+import NotFoundBoundary from "./components/NotFoundBoundary";
 
 export let links: LinksFunction = () => {
   return [
@@ -106,9 +107,7 @@ export function CatchBoundary() {
       );
       break;
     case 404:
-      message = (
-        <p>Oops! Looks like you tried to visit a page that does not exist.</p>
-      );
+      message = <NotFoundBoundary />;
       break;
 
     default:
@@ -117,12 +116,7 @@ export function CatchBoundary() {
 
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
-      <Layout>
-        <h1>
-          {caught.status}: {caught.statusText}
-        </h1>
-        {message}
-      </Layout>
+      <Layout>{message}</Layout>
     </Document>
   );
 }
@@ -132,14 +126,16 @@ export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <Document title="Error!">
       <Layout>
-        <div>
-          <h1>There was an error</h1>
-          <p>{error.message}</p>
-          <hr />
-          <p>
-            Hey, developer, you should replace this with what you want your
-            users to see.
-          </p>
+        <div className="max-w-screen-md mr-auto ml-auto">
+          <div role="alert">
+            <div className="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+              There was an error
+            </div>
+            <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+              <p>{error.message}</p>
+              <p>We are working hard on it to fix it. Please come back later</p>
+            </div>
+          </div>
         </div>
       </Layout>
     </Document>
