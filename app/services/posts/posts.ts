@@ -39,7 +39,8 @@ export async function getPosts(search?: string | null): Promise<Post[]> {
 
   let dir = await fs.readdir(postsPath);
   const converter = new showdown.Converter();
-
+  // filter out gitkeep
+  dir = dir.filter((filename) => filename !== ".gitkeep");
   return Promise.all(
     dir.map(async (filename) => {
       let file = await fs.readFile(path.join(postsPath, filename));
