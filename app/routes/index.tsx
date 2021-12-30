@@ -32,7 +32,7 @@ export default function Index() {
               elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
               magna aliquyam erat, sed diam.
             </Typography>
-            <div className="pt-8">
+            <div className="pt-8 flex">
               <Button large color="primary">
                 Get in touch
               </Button>
