@@ -26,9 +26,9 @@ export default function Index() {
               variant="h3"
               className="pt-4 leading-relaxed font-light"
             >
-              I want to help to make the web a better and more useable place
-              with my knowledge and my ideas. Read about my journeys and find
-              useful tips below on my blog.
+              I want to help make the web a better and more useable place for
+              all of us with my knowledge and my ideas. Read about my journeys
+              and find useful tips below on my blog.
             </Typography>
             <div className="pt-8 flex">
               <Button large link="/aboutme" color="primary">

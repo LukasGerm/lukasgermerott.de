@@ -46,11 +46,11 @@ export default function AboutMe() {
               <div className="md:mr-24">
                 <Typography className="font-semibold">Newstopia</Typography>
                 <Typography className="font-light leading-relaxed">
-                  Newstopia is one of my more recent journeys. I have started to
-                  feel that I am not watching enough technologies for my
-                  wellbeing, so I took a look at flutter. This project is a work
-                  in progress and will get additional features soon. At this
-                  moment it just shows the latest news.
+                  Newstopia is one of my more recent journeys. I started to feel
+                  that I am not trying out enough technologies for my wellbeing,
+                  so I took a look at flutter. This project is a work in
+                  progress and will get additional features soon. At this moment
+                  it just shows the latest news.
                 </Typography>
                 <ExternalLink
                   href="https://github.com/LukasGerm/newstopia"
@@ -68,7 +68,7 @@ export default function AboutMe() {
               </Typography>
               <Typography className="text-center font-light">
                 This is only the beginning. <br /> Please come back later to see
-                all of my projects.
+                all of my projects!
               </Typography>
             </div>
           </Container>
