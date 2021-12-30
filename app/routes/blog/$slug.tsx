@@ -33,6 +33,7 @@ export default function BlogArticle() {
 
   useEffect(() => {
     hljs.highlightAll();
+    document.title = post.title + " | Lukas Germerott";
   }, []);
 
   return (
