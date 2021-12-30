@@ -50,7 +50,7 @@ export async function getPosts(search?: string | null): Promise<Post[]> {
       );
       const attr = attributes as PostAttributes;
       return {
-        slug: filename.replace(/\.md$/, ""),
+        slug: filename.replace(/\.mdx$/, ""),
         title: attr.title,
         body: converter.makeHtml(body),
         publishedAt: attr.publishedAt,

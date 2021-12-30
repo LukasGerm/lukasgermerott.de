@@ -3,10 +3,11 @@ import { Link } from "remix";
 import Typography from "./Typography";
 
 interface ButtonProps {
-  color?: "primary";
+  color?: "primary" | "text";
   large?: boolean;
   link?: string;
   className?: string;
+  iconLeft?: JSX.Element;
 }
 
 /**
@@ -17,7 +18,9 @@ interface ButtonProps {
 const getButtonColor = (props: ButtonProps) => {
   switch (props.color) {
     case "primary":
-      return "bg-primary hover:bg-primaryHover";
+      return "bg-primary hover:bg-primaryHover focus:outline-primaryHover";
+    case "text":
+      return "bg-none hover:bg-card focus:outline-primaryHover";
     default:
       return "bg-card hover:bg-cardHover";
   }
@@ -36,17 +39,21 @@ const Button = (props: React.PropsWithChildren<ButtonProps>) => {
     return (
       <Link
         to={props.link}
-        className={
-          "inline-flex items-center focus:outline-primaryHover  " + className
-        }
+        className={"inline-flex items-center   " + className}
       >
-        <Typography>{props.children}</Typography>
+        {props.iconLeft && props.iconLeft}
+        <Typography className={props.iconLeft ? " ml-2.5" : ""}>
+          {props.children}
+        </Typography>
       </Link>
     );
   }
   return (
-    <button className={className}>
-      <Typography>{props.children}</Typography>
+    <button className={className + " flex"}>
+      {props.iconLeft && props.iconLeft}
+      <Typography className={props.iconLeft ? " ml-2.5" : ""}>
+        {props.children}
+      </Typography>
     </button>
   );
 };
