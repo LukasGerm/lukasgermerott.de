@@ -79,7 +79,7 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
         <div className="hidden md:block">
           <img
             src={LogoBanner}
-            className="max-h-20"
+            className="max-h-16"
             alt="Lukas Germerott Logo"
           />
         </div>
