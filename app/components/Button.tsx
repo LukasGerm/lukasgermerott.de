@@ -32,7 +32,7 @@ const getButtonColor = (props: ButtonProps) => {
  */
 const Button = (props: React.PropsWithChildren<ButtonProps>) => {
   const color = getButtonColor(props);
-  const padding = props.large ? "py-4 px-8" : "py-2 px-4";
+  const padding = props.large ? "py-4 px-6" : "py-2 px-4";
 
   const className = padding + " rounded " + color + " " + props.className;
   if (props.link) {
