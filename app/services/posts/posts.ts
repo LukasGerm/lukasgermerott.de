@@ -30,6 +30,19 @@ function filterPosts(posts: Post[], search: string) {
   );
 }
 
+const classMap = {
+  h1: "text-4xl pb-3",
+  h2: "text-2xl pb-3",
+  p: "text-base pb-3 font-light",
+  li: "ui item",
+};
+
+const bindings = Object.keys(classMap).map((key) => ({
+  type: "output",
+  regex: new RegExp(`<${key}(.*)>`, "g"),
+  replace: `<${key} class="${classMap[key as keyof typeof classMap]}" $1>`,
+}));
+
 /**
  * Gets all posts
  * @param search the search value to filter
@@ -38,7 +51,9 @@ export async function getPosts(search?: string | null): Promise<Post[]> {
   let postsPath = path.join(__dirname, "../app/posts");
 
   let dir = await fs.readdir(postsPath);
-  const converter = new showdown.Converter();
+  const converter = new showdown.Converter({
+    extensions: [...bindings],
+  });
   // filter out gitkeep
   dir = dir.filter((filename) => filename !== ".gitkeep");
   return Promise.all(

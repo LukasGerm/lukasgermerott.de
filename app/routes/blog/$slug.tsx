@@ -77,7 +77,7 @@ export default function BlogArticle() {
             )}
           </Typography>
           <div
-            className="font-light mt-5"
+            className="mt-5"
             dangerouslySetInnerHTML={{ __html: post.body }}
           />
         </div>
