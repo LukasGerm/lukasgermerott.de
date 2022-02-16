@@ -1,0 +1,25 @@
+# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
+version: 2.1
+
+
+orbs:
+  node: circleci/node@5.0.0
+
+
+jobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - node/install:
+          install-yarn: true 
+          node-version: '16.14' 
+
+workflows:
+  lukasgermerott:
+    jobs:
+      - node/test:
+          pkg-manager: npm 
+          run-command: test:unit 
+          test-results-for: jest 
