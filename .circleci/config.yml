@@ -7,7 +7,7 @@ orbs:
 
 
 jobs:
-  example-job:
+  install-job:
     docker:
       # replace with your preferred image
       - image: cimg/base:stable
@@ -23,3 +23,6 @@ workflows:
           pkg-manager: yarn 
           run-command: test:unit 
           test-results-for: jest 
+          test-results-path: junit.xml 
+          
+        
