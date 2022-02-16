@@ -5,7 +5,7 @@ import Typography from "~/components/Typography";
 import ProfilePicture from "../../assets/profile.jpg";
 import NewstopiaMockup from "../../assets/newstopia_mockup.png";
 import MoreToCome from "../../assets/more_come.svg";
-import Button from "~/components/Button";
+
 import ExternalLink from "~/components/ExternalLink";
 export let meta: MetaFunction = () => {
   return {

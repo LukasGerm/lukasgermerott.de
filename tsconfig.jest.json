@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["./setupTests.ts"],
+  "compilerOptions": {
+    "target": "ES2018",
+    "jsx": "react-jsxdev",
+    "esModuleInterop": true,
+    "allowJs": true
+  }
+}
