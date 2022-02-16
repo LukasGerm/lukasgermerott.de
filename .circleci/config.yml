@@ -20,6 +20,6 @@ workflows:
   lukasgermerott:
     jobs:
       - node/test:
-          pkg-manager: npm 
+          pkg-manager: yarn 
           run-command: test:unit 
           test-results-for: jest 
