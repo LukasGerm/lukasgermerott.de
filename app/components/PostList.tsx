@@ -1,13 +1,12 @@
 import React from "react";
-import { useLoaderData } from "remix";
 import { Post } from "~/services/posts/types/Post";
 import Grid from "./Grid";
 import PostTile from "./PostTile";
 import NoData from "../assets/no_data.svg";
 import Typography from "./Typography";
 
-const PostList = () => {
-  const posts = useLoaderData<Post[]>();
+const PostList = (props: { posts: Post[] }) => {
+  const { posts } = props;
 
   if (posts.length === 0) {
     return (

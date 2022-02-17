@@ -24,6 +24,7 @@ export let loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function BlogList() {
+  const posts = useLoaderData<Post[]>();
   return (
     <div className="bg-background px-10">
       <Typography variant="h2" className="text-center">
@@ -32,7 +33,7 @@ export default function BlogList() {
       <section>
         <Search />
       </section>
-      <PostList />
+      <PostList posts={posts} />
       <section>
         <div className="mt-10 pb-10">
           <Typography variant="h2" className="text-center">
