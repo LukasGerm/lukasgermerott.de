@@ -33,8 +33,8 @@ export function filterPosts(posts: Post[], search: string) {
 }
 
 const classMap = {
-  h1: "text-4xl pb-6",
-  h2: "text-2xl pb-6",
+  h1: "text-4xl pb-6 text-primaryLight",
+  h2: "text-2xl pb-6 text-primaryLight",
   p: "text-base pb-12 font-light leading-7",
   li: "ui item",
   a: "text-sky-400 hover:text-sky-500 transition duration-300 ease-in-out",
