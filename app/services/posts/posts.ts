@@ -41,7 +41,7 @@ const classMap = {
 
 const bindings = Object.keys(classMap).map((key) => ({
   type: "output",
-  regex: new RegExp(`<${key}(.*)>`, "g"),
+  regex: new RegExp(`<${key}>`, "g"),
   replace: `<${key} class="${classMap[key as keyof typeof classMap]}" $1>`,
 }));
 
@@ -55,6 +55,7 @@ export async function getPosts(search?: string | null): Promise<Post[]> {
   let dir = await fs.readdir(postsPath);
   const converter = new showdown.Converter({
     extensions: [...bindings],
+    noHeaderId: true,
   });
   // filter out gitkeep
   dir = dir.filter((filename) => filename !== ".gitkeep");
