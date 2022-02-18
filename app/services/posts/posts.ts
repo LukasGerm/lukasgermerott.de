@@ -5,9 +5,8 @@ import path from "path";
 import { Post, PostAttributes } from "./types/Post";
 import invariant from "tiny-invariant";
 
-function isInvalidPostAttributes(attributes: unknown) {
+export function isInvalidPostAttributes(attributes: unknown) {
   const casted = attributes as PostAttributes;
-  // TODO Add date check
   if (!casted.publishedAt || !casted.spoilerImageLink || !casted.title) {
     return true;
   }
@@ -24,9 +23,12 @@ export async function getPost(slugName: string) {
  * @param posts
  * @param search
  */
-function filterPosts(posts: Post[], search: string) {
+export function filterPosts(posts: Post[], search: string) {
+  const lowercaseSearch = search.toLowerCase();
   return posts.filter(
-    (post) => post.slug.includes(search) || post.title.includes(search)
+    (post) =>
+      post.slug.toLowerCase().includes(lowercaseSearch) ||
+      post.title.toLowerCase().includes(lowercaseSearch)
   );
 }
 
