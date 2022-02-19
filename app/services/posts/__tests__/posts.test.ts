@@ -75,8 +75,13 @@ describe("isInvalidPostAttributes", () => {
     expect(isInvalidPostAttributes(attributes)).toBeTruthy();
   });
   it("handles wrong date format", () => {
-    //TODO Write test
-    expect(true).toBeTruthy();
+    const attributes: Partial<PostAttributes> = {
+      spoilerImageLink: "https://test.com",
+      title: "asd",
+      publishedAt: "10-02-2000",
+    };
+
+    expect(isInvalidPostAttributes(attributes)).toBeTruthy();
   });
 });
 

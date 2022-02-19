@@ -7,8 +7,14 @@ import invariant from "tiny-invariant";
 
 export function isInvalidPostAttributes(attributes: unknown) {
   const casted = attributes as PostAttributes;
+  const dateRegex = /^\d{2}\.\d{2}\.\d{4}$/;
 
-  if (!casted.publishedAt || !casted.spoilerImageLink || !casted.title) {
+  if (
+    !casted.publishedAt ||
+    !casted.spoilerImageLink ||
+    !casted.title ||
+    !dateRegex.test(casted.publishedAt)
+  ) {
     return true;
   }
   return false;
