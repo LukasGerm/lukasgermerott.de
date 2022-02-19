@@ -4,8 +4,6 @@ import type { LoaderFunction } from "remix";
 import { getPosts } from "~/services/posts/posts";
 import { Post } from "~/services/posts/types/Post";
 import Typography from "~/components/Typography";
-import PostTile from "~/components/PostTile";
-import Grid from "~/components/Grid";
 import Search from "~/components/Search";
 import Button from "~/components/Button";
 import PostList from "~/components/PostList";

@@ -7,6 +7,7 @@ import invariant from "tiny-invariant";
 
 export function isInvalidPostAttributes(attributes: unknown) {
   const casted = attributes as PostAttributes;
+
   if (!casted.publishedAt || !casted.spoilerImageLink || !casted.title) {
     return true;
   }
@@ -59,7 +60,7 @@ bindings.push({
  * @param search the search value to filter
  */
 export async function getPosts(search?: string | null): Promise<Post[]> {
-  let postsPath = path.join(__dirname, "../app/posts");
+  const postsPath = path.join(__dirname, "../app/posts");
 
   let dir = await fs.readdir(postsPath);
   const converter = new showdown.Converter({

@@ -27,6 +27,7 @@ const PostTile = (props: PostTileProps) => {
                 loading="lazy"
                 className="h-96 object-cover rounded-2xl select-none"
                 src={post.spoilerImageLink}
+                alt={post.title + " Post"}
               />
             </div>
 
