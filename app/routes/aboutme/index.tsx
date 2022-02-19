@@ -23,7 +23,11 @@ export default function AboutMe() {
             About Me
           </Typography>
           <div className="flex justify-between items-center mt-10 flex-col md:flex-row">
-            <img className="rounded-full max-h-52" src={ProfilePicture} />
+            <img
+              className="rounded-full max-h-52"
+              alt="Lukas Germerott"
+              src={ProfilePicture}
+            />
             <div className="md:ml-24 mt-5 md:mt-0">
               <Typography className="font-semibold">
                 Hi I'm Lukas Germerott
@@ -58,10 +62,18 @@ export default function AboutMe() {
                 Visit Github
               </ExternalLink>
             </div>
-            <img className="max-h-96 md:mt-0 mt-5" src={NewstopiaMockup} />
+            <img
+              className="max-h-96 md:mt-0 mt-5"
+              src={NewstopiaMockup}
+              alt="Newstopia mockup"
+            />
           </div>
           <div className="mt-10 flex justify-center flex-col items-center pb-10">
-            <img src={MoreToCome} className="max-h-36" />
+            <img
+              src={MoreToCome}
+              className="max-h-36"
+              alt="More to come placeholder"
+            />
             <Typography className="mt-2 font-semibold">More to Come</Typography>
             <Typography className="text-center font-light">
               This is only the beginning. <br /> Please come back later to see

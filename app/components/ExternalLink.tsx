@@ -11,7 +11,7 @@ interface ExternalLinkProps {
 const ExternalLink = (props: React.PropsWithChildren<ExternalLinkProps>) => {
   const className = "text-sky-400 hover:text-sky-500 " + props.className;
   return (
-    <a href={props.href} className={className} target="_blank">
+    <a href={props.href} className={className} target="_blank" rel="noreferrer">
       {props.children}
     </a>
   );

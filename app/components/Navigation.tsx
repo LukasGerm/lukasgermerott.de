@@ -104,7 +104,7 @@ const Navigation = () => {
           </li>
           <li>
             <ExternalLink href="https://github.com/LukasGerm">
-              <img src={GithubPicture} className="max-h-8" />
+              <img src={GithubPicture} className="max-h-8" alt="Github link" />
             </ExternalLink>
           </li>
         </ul>
@@ -137,7 +137,11 @@ const Navigation = () => {
             </li>
             <li className="p-2" onClick={handleClose}>
               <ExternalLink href="https://github.com/LukasGerm">
-                <img src={GithubPicture} className="max-h-8" />
+                <img
+                  src={GithubPicture}
+                  className="max-h-8"
+                  alt="Github link"
+                />
               </ExternalLink>
             </li>
           </ul>

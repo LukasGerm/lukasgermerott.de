@@ -34,7 +34,7 @@ export default function BlogArticle() {
   useEffect(() => {
     hljs.highlightAll();
     document.title = post.title + " | Lukas Germerott";
-  }, []);
+  }, [post.title]);
 
   return (
     <div className="bg-background">
@@ -65,6 +65,7 @@ export default function BlogArticle() {
           <img
             src={post.spoilerImageLink}
             className="object-cover rounded-2xl h-96 w-full mt-5"
+            alt="Spoiler"
           />
           <Typography variant="h2" className="mt-5 font-light">
             {post.title}

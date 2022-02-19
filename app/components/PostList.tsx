@@ -11,7 +11,7 @@ const PostList = (props: { posts: Post[] }) => {
   if (posts.length === 0) {
     return (
       <div className="flex justify-center mt-10 flex-col">
-        <img src={NoData} className="max-h-80" />
+        <img src={NoData} className="max-h-80" alt="No data available" />
         <Typography className="text-center font-light mt-5">
           No posts found
         </Typography>
