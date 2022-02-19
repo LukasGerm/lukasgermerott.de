@@ -66,10 +66,10 @@ export default function BlogArticle() {
             src={post.spoilerImageLink}
             className="object-cover rounded-2xl h-96 w-full mt-5"
           />
-          <Typography variant="h2" className="mt-5">
+          <Typography variant="h2" className="mt-5 font-light">
             {post.title}
           </Typography>
-          <Typography className="font-light">
+          <Typography className="font-extralight">
             Published at{" "}
             {format(
               parse(post.publishedAt, "dd.MM.yyyy", new Date()),
