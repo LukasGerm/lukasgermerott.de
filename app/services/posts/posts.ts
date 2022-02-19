@@ -33,10 +33,13 @@ export function filterPosts(posts: Post[], search: string) {
 }
 
 const classMap = {
-  h1: "text-4xl pb-3",
-  h2: "text-2xl pb-3",
-  p: "text-base pb-3 font-light",
+  h1: "text-4xl pb-6 text-primaryLight",
+  h2: "text-2xl pb-6 text-primaryLight",
+  h3: "text-xl pb-3 font-normal",
+  p: "text-base pb-12 font-light leading-7",
   li: "ui item",
+  a: "text-sky-400 hover:text-sky-500 transition duration-300 ease-in-out",
+  code: "bg-card text-xs p-1 rounded",
 };
 
 const bindings = Object.keys(classMap).map((key) => ({
@@ -44,6 +47,12 @@ const bindings = Object.keys(classMap).map((key) => ({
   regex: new RegExp(`<${key}>`, "g"),
   replace: `<${key} class="${classMap[key as keyof typeof classMap]}" $1>`,
 }));
+
+bindings.push({
+  type: "output",
+  regex: new RegExp(`<a (.*)>`, "g"),
+  replace: `<a class="${classMap["a"]}" $1>`,
+});
 
 /**
  * Gets all posts
