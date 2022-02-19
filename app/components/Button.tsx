@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "remix";
-import Typography from "./Typography";
 
 interface ButtonProps {
   color?: "primary" | "text";

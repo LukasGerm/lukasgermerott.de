@@ -7,6 +7,7 @@ import Typography from "~/components/Typography";
 import { getPost } from "~/services/posts/posts";
 import { Post } from "~/services/posts/types/Post";
 import hljs from "highlight.js";
+import NotFoundBoundary from "~/components/NotFoundBoundary";
 
 export let meta: MetaFunction = () => {
   return {
@@ -29,12 +30,14 @@ export let loader: LoaderFunction = async ({ params }) => {
 };
 
 export default function BlogArticle() {
-  const post = useLoaderData<Post>();
+  const post = useLoaderData<Post | null>();
 
   useEffect(() => {
     hljs.highlightAll();
-    document.title = post.title + " | Lukas Germerott";
-  }, [post.title]);
+    document.title = post?.title + " | Lukas Germerott";
+  }, [post?.title]);
+
+  if (!post) return <NotFoundBoundary />;
 
   return (
     <div className="bg-background">
