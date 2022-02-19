@@ -1,0 +1,101 @@
+---
+title: Why you should choose remix
+spoilerImageLink: https://i.ibb.co/FJswZTz/mountains-g3dba15faf-1920.jpg
+publishedAt: 19.02.2022
+---
+
+## Why did I choose remix for this site?
+
+I sometimes hate working on personal websites. I just took wordpress, installed a nice looking theme and
+wohoo! I finished my website. Lately my thoughts about having a personal website shifted. I am now
+thinking about my personal website as a project which can be used to test out things and create great tools.
+
+I am a professional React developer who never used serverside rendering before. I tested out next.js once but did not dig further
+into it, because I did not understand the usecase. I was not very experienced at that point. Now I entered react conf
+and learned about some nice features React 18 will provide regarding Server Side Rendering and I thought, maybe I should give it
+another try.
+
+At the same time, I read about Remix on the website of the wide known Kent C. Dodds and I thought it might be fun to test
+out a newly released framework for my website. You can check him out [here](https://kentcdodds.com).
+
+## What makes remix special (at least for me)
+
+When you choose to use remix in projects, you will just save much code, because
+frontend and backend code are in the same project and the whole application is loaded super fast before a user can use it. This
+might sound like a disandvantage and it can be in cases where you need to load tons of data, but in most of the cases, its not.
+If you have to handle very much data, you can use caching systems like [Redis](https://redis.io/) to prevent the application from spamming requests to the
+database or other linked services.
+
+Normally if you fetch data, you have some kind of mutations or service calls in the frontend. You also
+have to show preloaders or other loading indicators, but you don't have to, when you use Remix.
+
+## How did I get started?
+
+Coming from client side rendering, I first had to wrap my head around server side rendering and making database calls basically in the same
+files as the JSX is in. A good read is the [Technical Explanation](https://remix.run/docs/en/v1/pages/technical-explanation) directly in the docs, which
+explains how remix works in depth, you should give it a read.
+After that I would just follow one of the tutorials like the [Developer Blog](https://remix.run/docs/en/v1/tutorials/blog). Out
+of such a tutorial my website, where you are currently reading this, happened to be created.
+
+## Loading data is super different
+
+Other than in normal client side applications, the data loading does not happen when the component is mounted or rendered.
+The loading happens before the app even gets shipped to the user. As I mentioned above, all data is getting loaded, before
+the site renders for the user. Here is a small example I stole from the [Data Loading](https://remix.run/docs/en/v1/guides/data-loading) documentation:
+
+```tsx
+import { useLoaderData } from "remix";
+import type { LoaderFunction } from "remix";
+
+export let loader: LoaderFunction = async () => {
+  return [{ name: "Pants" }, { name: "Jacket" }];
+};
+
+export default function Products() {
+  let products = useLoaderData();
+  return (
+    <div>
+      <h1>Products</h1>
+      {products.map((product) => (
+        <div>{product.name}</div>
+      ))}
+    </div>
+  );
+}
+```
+
+As you can see, we are defining a `loader` which is exported . This loader cannot be named
+differently. It is basically the thing which gets called, when you make a `GET` request to this site.
+In the react component below, we can just call the hook `useLoaderData()` to retrieve the data which is loaded
+in the loader without having to set a preloader, because it is loaded before the application is shipped
+to the user.
+
+## Testing
+
+Testing at the point of writing is a bit hard in my opinion, because we don't have some kind of `@testing-library/remix`
+package. But there are some ways to test your application. As you can see above, the `loader` is just a exported
+function. This makes it super easy to test logic:
+
+```typescript
+import { loader } from "./YourFile.tsx";
+
+describe("loader", () => {
+  it("returns the right stuff", () => {
+    expect(await loader()).toEqual([{ name: "Pants" }, { name: "Jacket" }]);
+  });
+});
+```
+
+We just import the loader and run our tests on it. Super easy, right?
+
+Normal react components can just be tested just as normal react components with packages like `@testing-library/react`, if
+they don't contain any remix components. Maybe I will write a tutorial for writing normal react
+tests in a remix application. But they are unneccessary in most apps, because most of them use
+component frameworks like [Material UI](https://mui.com) where they don't need to test components.
+
+The rest of the logic can be tested with proper end to end tests.
+
+## Conclusion
+
+If you would like to try out a nice and fast serverside rendering react framework, you should give remix a try.
+The recent versions got so much better, because several bugs got fixed.
