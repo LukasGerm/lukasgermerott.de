@@ -18,11 +18,11 @@ interface ButtonProps {
 const getButtonColor = (props: ButtonProps) => {
   switch (props.color) {
     case "primary":
-      return "bg-primary hover:bg-primaryHover focus:outline-primaryHover";
+      return "bg-primary hover:bg-primaryHover focus:outline-primaryHover text-card";
     case "text":
-      return "bg-none hover:bg-card focus:outline-primaryHover";
+      return "bg-none hover:bg-card focus:outline-primaryHover text-gray-200";
     default:
-      return "bg-card hover:bg-cardHover";
+      return "bg-card hover:bg-cardHover text-gray-200";
   }
 };
 
@@ -42,18 +42,14 @@ const Button = (props: React.PropsWithChildren<ButtonProps>) => {
         className={"inline-flex items-center   " + className}
       >
         {props.iconLeft && props.iconLeft}
-        <Typography className={props.iconLeft ? " ml-2.5" : ""}>
-          {props.children}
-        </Typography>
+        <p className={props.iconLeft ? " ml-2.5" : ""}>{props.children}</p>
       </Link>
     );
   }
   return (
     <button className={className + " flex"}>
       {props.iconLeft && props.iconLeft}
-      <Typography className={props.iconLeft ? " ml-2.5" : ""}>
-        {props.children}
-      </Typography>
+      <p className={props.iconLeft ? " ml-2.5" : ""}>{props.children}</p>
     </button>
   );
 };
