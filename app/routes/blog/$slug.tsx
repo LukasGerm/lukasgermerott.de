@@ -9,10 +9,13 @@ import { Post } from "~/services/posts/types/Post";
 import hljs from "highlight.js";
 import NotFoundBoundary from "~/components/NotFoundBoundary";
 
-export let meta: MetaFunction = () => {
+export let meta: MetaFunction = ({ data }: { data: Post }) => {
   return {
-    title: "Blog | Lukas Germerott",
-    description: "Lukas Blog",
+    title: data.title + " | Lukas Germerott",
+    description: data.description,
+    "og:title": data.title + " | Lukas Germerott",
+    "og:description": data.description,
+    "og:image": data.spoilerImageLink,
   };
 };
 
@@ -34,8 +37,7 @@ export default function BlogArticle() {
 
   useEffect(() => {
     hljs.highlightAll();
-    document.title = post?.title + " | Lukas Germerott";
-  }, [post?.title]);
+  });
 
   if (!post) return <NotFoundBoundary />;
 
