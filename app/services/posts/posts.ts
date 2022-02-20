@@ -13,6 +13,7 @@ export function isInvalidPostAttributes(attributes: unknown) {
     !casted.publishedAt ||
     !casted.spoilerImageLink ||
     !casted.title ||
+    !casted.description ||
     !dateRegex.test(casted.publishedAt)
   ) {
     return true;
@@ -90,6 +91,7 @@ export async function getPosts(search?: string | null): Promise<Post[]> {
         body: converter.makeHtml(body),
         publishedAt: attr.publishedAt,
         spoilerImageLink: attr.spoilerImageLink,
+        description: attr.description,
       } as Post;
     })
   ).then((posts) => {

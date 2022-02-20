@@ -10,6 +10,7 @@ const testMarkdown = `---
 title: Test entry
 spoilerImageLink: https://i.ibb.co/FJswZTz/mountains-g3dba15faf-1920.jpg
 publishedAt: 08.02.2022
+description: Test description
 ---
 
 # Sample Markdown
@@ -36,6 +37,7 @@ describe("posts service", () => {
 
     expect(post?.title).toEqual("Test entry");
     expect(post?.slug).toEqual("test");
+    expect(post?.description).toEqual("Test description");
   });
 });
 
@@ -45,6 +47,7 @@ describe("isInvalidPostAttributes", () => {
       publishedAt: "10.02.2000",
       spoilerImageLink: "http://test.com",
       title: "Title",
+      description: "Test description",
     };
 
     expect(isInvalidPostAttributes(attributes)).toBeFalsy();
@@ -54,6 +57,7 @@ describe("isInvalidPostAttributes", () => {
     const attributes: Partial<PostAttributes> = {
       publishedAt: "10.02.2000",
       spoilerImageLink: "https://test.com",
+      description: "Test description",
     };
 
     expect(isInvalidPostAttributes(attributes)).toBeTruthy();
@@ -62,6 +66,7 @@ describe("isInvalidPostAttributes", () => {
     const attributes: Partial<PostAttributes> = {
       publishedAt: "10.02.2000",
       title: "TITLE",
+      description: "Test description",
     };
 
     expect(isInvalidPostAttributes(attributes)).toBeTruthy();
@@ -70,6 +75,16 @@ describe("isInvalidPostAttributes", () => {
     const attributes: Partial<PostAttributes> = {
       spoilerImageLink: "https://test.com",
       title: "asd",
+      description: "Test description",
+    };
+
+    expect(isInvalidPostAttributes(attributes)).toBeTruthy();
+  });
+  it("handles missing description at", () => {
+    const attributes: Partial<PostAttributes> = {
+      spoilerImageLink: "https://test.com",
+      title: "asd",
+      publishedAt: "10.02.2000",
     };
 
     expect(isInvalidPostAttributes(attributes)).toBeTruthy();
@@ -79,6 +94,7 @@ describe("isInvalidPostAttributes", () => {
       spoilerImageLink: "https://test.com",
       title: "asd",
       publishedAt: "10-02-2000",
+      description: "Test description",
     };
 
     expect(isInvalidPostAttributes(attributes)).toBeTruthy();
@@ -93,6 +109,7 @@ describe("filterPosts", () => {
       slug: "test-post",
       spoilerImageLink: "http://test.post/image.png",
       title: "Test post",
+      description: "Test description",
     },
     {
       body: "<p>Test</p>",
@@ -100,6 +117,7 @@ describe("filterPosts", () => {
       slug: "very-important",
       spoilerImageLink: "http://test.post/image.png",
       title: "Very important post speecial",
+      description: "Test description",
     },
     {
       body: "<p>Test</p>",
@@ -107,6 +125,7 @@ describe("filterPosts", () => {
       slug: "funny-post",
       spoilerImageLink: "http://test.post/image.png",
       title: "Funny post freaky",
+      description: "Test description",
     },
   ];
   it("handles title filter okay", () => {
