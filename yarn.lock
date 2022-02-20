@@ -1041,6 +1041,18 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@datapunt/matomo-tracker-js@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@datapunt/matomo-tracker-js/-/matomo-tracker-js-0.5.1.tgz#92a746ffa421f91b3a59fefce707d45ca22be96b"
+  integrity sha512-9/MW9vt/BA5Db7tO6LqCeQKtuvBNjyq51faF3AzUmPMlYsJCnASIxcut3VqJKiribhUoey7aYbPIYuj9x4DLPA==
+
+"@datapunt/matomo-tracker-react@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@datapunt/matomo-tracker-react/-/matomo-tracker-react-0.5.1.tgz#d7a4e62b23610eab2b7513d4df41d500291aaa53"
+  integrity sha512-lrNYM9hFL6XK0VAdtMb7MwZrLWhaAconx4c7gOGAMvoWuoVm+ZZIYFuKtfYdYMeBf0avxWtmKRwjZEg7T8jV2A==
+  dependencies:
+    "@datapunt/matomo-tracker-js" "^0.5.1"
+
 "@eslint/eslintrc@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-1.1.0.tgz#583d12dbec5d4f22f333f9669f7d0b7c7815b4d3"
@@ -2959,6 +2971,11 @@ domexception@^2.0.1:
   integrity sha512-yxJ2mFy/sibVQlu5qHjOkf9J3K6zgmCxgJ94u2EdvDOV09H+32LtRswEcUsmUWN72pVLOEnTSRaIVVzVQgS0dg==
   dependencies:
     webidl-conversions "^5.0.0"
+
+dotenv@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.0.tgz#c619001253be89ebb638d027b609c75c26e47411"
+  integrity sha512-qD9WU0MPM4SWLPJy/r2Be+2WgQj8plChsyrCNQzW/0WjvcJQiKQJ9mH3ZgB3fxbUUxgc/11ZJ0Fi5KiimWGz2Q==
 
 ee-first@1.1.1:
   version "1.1.1"

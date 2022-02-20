@@ -2,11 +2,13 @@ import * as React from "react";
 import {
   Links,
   LiveReload,
+  LoaderFunction,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
   useCatch,
+  useLoaderData,
   useLocation,
 } from "remix";
 import type { LinksFunction } from "remix";
@@ -16,6 +18,13 @@ import Navigation from "./components/Navigation";
 import Favicon from "./assets/favicon.png";
 import highlight from "highlight.js/styles/atom-one-dark.css";
 import NotFoundBoundary from "./components/NotFoundBoundary";
+import { MatomoProvider, createInstance } from "@datapunt/matomo-tracker-react";
+import { Config } from "./services/config/types/Config";
+import { getConfig } from "./services/config/config";
+
+export let loader: LoaderFunction = () => {
+  return getConfig();
+};
 
 export let links: LinksFunction = () => {
   return [
@@ -31,11 +40,19 @@ export let links: LinksFunction = () => {
  * component for your app.
  */
 export default function App() {
+  const loaderData = useLoaderData<Config>();
+
+  const instance = createInstance({
+    urlBase: loaderData.matomo.urlBase,
+    siteId: loaderData.matomo.siteId,
+  });
   return (
     <Document>
-      <Layout>
-        <Outlet />
-      </Layout>
+      <MatomoProvider value={instance}>
+        <Layout>
+          <Outlet />
+        </Layout>
+      </MatomoProvider>
     </Document>
   );
 }
