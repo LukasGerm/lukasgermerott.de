@@ -4,11 +4,15 @@ import Container from "~/components/Container";
 import Grid, { GridItem } from "~/components/Grid";
 import Typography from "~/components/Typography";
 import HomeDrawing from "../assets/home_drawing.svg";
+import ProfilePicture from "../assets/profile.jpg";
 
 export let meta: MetaFunction = () => {
   return {
     title: "Home | Lukas Germerott",
     description: "Welcome to the homepage of lukas",
+    "og:title": "Lukas Germerott Softwareengineering",
+    "og:description": "Welcome to the homepage of lukas.",
+    "og:image": ProfilePicture,
   };
 };
 

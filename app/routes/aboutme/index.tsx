@@ -5,12 +5,15 @@ import Typography from "~/components/Typography";
 import ProfilePicture from "../../assets/profile.jpg";
 import NewstopiaMockup from "../../assets/newstopia_mockup.png";
 import MoreToCome from "../../assets/more_come.svg";
-
 import ExternalLink from "~/components/ExternalLink";
+
 export let meta: MetaFunction = () => {
   return {
     title: "About Me | Lukas Germerott",
-    description: "Welcome to the homepage of lukas",
+    description: "About Lukas. Learn more about him and his craft.",
+    "og:title": "About Me | Lukas Germerott",
+    "og:description": "About Lukas. Learn more about him and his craft.",
+    "og:image": ProfilePicture,
   };
 };
 

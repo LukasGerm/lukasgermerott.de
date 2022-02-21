@@ -7,11 +7,15 @@ import Typography from "~/components/Typography";
 import Search from "~/components/Search";
 import Button from "~/components/Button";
 import PostList from "~/components/PostList";
+import ProfilePicture from "../../assets/profile.jpg";
 
 export let meta: MetaFunction = () => {
   return {
     title: "Blog | Lukas Germerott",
-    description: "Lukas Blog",
+    description: "Cool tips and tutorials all about web development.",
+    "og:title": "Blog | Lukas Germerott",
+    "og:description": "Cool tips and tutorials all about web development.",
+    "og:image": ProfilePicture,
   };
 };
 
