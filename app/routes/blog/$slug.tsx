@@ -8,6 +8,7 @@ import { getPost } from "~/services/posts/posts";
 import { Post } from "~/services/posts/types/Post";
 import hljs from "highlight.js";
 import NotFoundBoundary from "~/components/NotFoundBoundary";
+import AuthorCard from "~/components/AuthorCard";
 
 export let meta: MetaFunction = ({ data }: { data: Post }) => {
   return {
@@ -44,7 +45,7 @@ export default function BlogArticle() {
   return (
     <div className="bg-background">
       <Container padding={12}>
-        <div className="text-gray-200 max-w-screen-sm ml-auto mr-auto mt-10">
+        <div className="text-gray-200 max-w-screen-sm ml-auto mr-auto mt-10 pb-10">
           <Button
             link="/blog"
             color="text"
@@ -86,6 +87,7 @@ export default function BlogArticle() {
             className="mt-5"
             dangerouslySetInnerHTML={{ __html: post.body }}
           />
+          <AuthorCard />
         </div>
       </Container>
     </div>
