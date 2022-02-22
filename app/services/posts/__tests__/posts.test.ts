@@ -113,7 +113,7 @@ describe("filterPosts", () => {
       spoilerImageLink: "http://test.post/image.png",
       title: "Test post",
       description: "Test description",
-      categories: [],
+      categories: ["Remix"],
     },
     {
       body: "<p>Test</p>",
@@ -122,7 +122,7 @@ describe("filterPosts", () => {
       spoilerImageLink: "http://test.post/image.png",
       title: "Very important post speecial",
       description: "Test description",
-      categories: [],
+      categories: ["React", "Remix"],
     },
     {
       body: "<p>Test</p>",
@@ -131,7 +131,7 @@ describe("filterPosts", () => {
       spoilerImageLink: "http://test.post/image.png",
       title: "Funny post freaky",
       description: "Test description",
-      categories: [],
+      categories: ["SSR"],
     },
   ];
   it("handles title filter okay", () => {
@@ -151,5 +151,15 @@ describe("filterPosts", () => {
 
     expect(list.length).toEqual(1);
     expect(list[0]).toEqual(dummyPostList[2]);
+  });
+  it("finds posts which have the right category", () => {
+    const list = filterPosts(dummyPostList, "", ["Remix"]);
+    const secondList = filterPosts(dummyPostList, "", ["SSR"]);
+
+    expect(list.length).toEqual(2);
+    expect(list[0]).toEqual(dummyPostList[0]);
+    expect(list[1]).toEqual(dummyPostList[1]);
+    expect(secondList.length).toEqual(1);
+    expect(secondList[0]).toEqual(dummyPostList[2]);
   });
 });

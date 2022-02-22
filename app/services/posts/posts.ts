@@ -31,12 +31,18 @@ export async function getPost(slugName: string) {
  * @param posts
  * @param search
  */
-export function filterPosts(posts: Post[], search: string) {
+export function filterPosts(
+  posts: Post[],
+  search: string,
+  categories?: string[]
+) {
   const lowercaseSearch = search.toLowerCase();
   return posts.filter(
     (post) =>
-      post.slug.toLowerCase().includes(lowercaseSearch) ||
-      post.title.toLowerCase().includes(lowercaseSearch)
+      (post.slug.toLowerCase().includes(lowercaseSearch) ||
+        post.title.toLowerCase().includes(lowercaseSearch)) &&
+      (!categories ||
+        categories?.every((category) => post.categories.includes(category)))
   );
 }
 
