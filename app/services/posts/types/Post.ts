@@ -5,6 +5,7 @@ export type Post = {
   publishedAt: string;
   body: string;
   description: string;
+  categories: string[];
 };
 
 export type PostAttributes = {
@@ -12,4 +13,5 @@ export type PostAttributes = {
   spoilerImageLink: string;
   publishedAt: string;
   description: string;
+  categories: string;
 };
