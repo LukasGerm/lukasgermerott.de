@@ -6,7 +6,7 @@ import Input from "./Input";
  * Search component for the blog page
  * @returns
  */
-const Search = () => {
+const Search = (props: { categories: string[] }) => {
   const submit = useSubmit();
   const [searchParams] = useSearchParams();
 

@@ -1,4 +1,4 @@
-import { useLoaderData, MetaFunction } from "remix";
+import { useLoaderData, MetaFunction, useSubmit } from "remix";
 
 import type { LoaderFunction } from "remix";
 import { getPosts } from "~/services/posts/posts";
@@ -8,6 +8,9 @@ import Search from "~/components/Search";
 import Button from "~/components/Button";
 import PostList from "~/components/PostList";
 import ProfilePicture from "../../assets/profile.jpg";
+import Categories from "~/components/Categories";
+import { useEffect, useReducer } from "react";
+import PostReducerAction from "~/services/posts/types/PostReducerAction";
 
 export let meta: MetaFunction = () => {
   return {
@@ -25,15 +28,42 @@ export let loader: LoaderFunction = async ({ request }) => {
   return getPosts(search);
 };
 
+function reducer(state: string[], action: PostReducerAction) {
+  switch (action.type) {
+    case "ADD":
+      return [...state, action.value];
+    case "REMOVE":
+      return state.filter((value) => value !== action.value);
+    default:
+      return state;
+  }
+}
+
 export default function BlogList() {
   const posts = useLoaderData<Post[]>();
+  const submit = useSubmit();
+  const [categories, dispatch] = useReducer(reducer, []);
+
+  useEffect(() => {
+    if (categories.length > 0) {
+      const data = new FormData();
+      data.set("categories", JSON.stringify(categories));
+      submit(data);
+    }
+  }, [categories, submit]);
+
   return (
     <div className="bg-background px-10">
       <Typography variant="h2" className="text-center">
         Blog
       </Typography>
       <section>
-        <Search />
+        <Search categories={categories} />
+      </section>
+      <section>
+        <div className="max-w-screen-xl ml-auto mr-auto mt-10">
+          <Categories posts={posts} handleChange={dispatch} />
+        </div>
       </section>
       <PostList posts={posts} />
       <section>
