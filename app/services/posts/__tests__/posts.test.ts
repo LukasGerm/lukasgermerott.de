@@ -11,6 +11,7 @@ title: Test entry
 spoilerImageLink: https://i.ibb.co/FJswZTz/mountains-g3dba15faf-1920.jpg
 publishedAt: 08.02.2022
 description: Test description
+categories: React, Remix, SSR
 ---
 
 # Sample Markdown
@@ -31,6 +32,7 @@ describe("posts service", () => {
     expect(posts.length).toEqual(1);
     expect(post.title).toEqual("Test entry");
     expect(post.slug).toEqual("test");
+    expect(post.categories).toEqual(["React", "Remix", "SSR"]);
   });
   it("Gets single post by slug name", async () => {
     const post = await getPost("test");
@@ -48,6 +50,7 @@ describe("isInvalidPostAttributes", () => {
       spoilerImageLink: "http://test.com",
       title: "Title",
       description: "Test description",
+      categories: "React,Remix",
     };
 
     expect(isInvalidPostAttributes(attributes)).toBeFalsy();
@@ -110,6 +113,7 @@ describe("filterPosts", () => {
       spoilerImageLink: "http://test.post/image.png",
       title: "Test post",
       description: "Test description",
+      categories: ["Remix"],
     },
     {
       body: "<p>Test</p>",
@@ -118,6 +122,7 @@ describe("filterPosts", () => {
       spoilerImageLink: "http://test.post/image.png",
       title: "Very important post speecial",
       description: "Test description",
+      categories: ["React", "Remix"],
     },
     {
       body: "<p>Test</p>",
@@ -126,24 +131,35 @@ describe("filterPosts", () => {
       spoilerImageLink: "http://test.post/image.png",
       title: "Funny post freaky",
       description: "Test description",
+      categories: ["SSR"],
     },
   ];
   it("handles title filter okay", () => {
-    const list = filterPosts(dummyPostList, "freaky");
+    const list = filterPosts(dummyPostList, "freaky", []);
 
     expect(list.length).toEqual(1);
     expect(list[0]).toEqual(dummyPostList[2]);
   });
 
   it("handles slug filter okay", () => {
-    const list = filterPosts(dummyPostList, "funny");
+    const list = filterPosts(dummyPostList, "funny", []);
     expect(list.length).toEqual(1);
     expect(list[0]).toEqual(dummyPostList[2]);
   });
   it("handles title filter not case sensitive", () => {
-    const list = filterPosts(dummyPostList, "frEaKy");
+    const list = filterPosts(dummyPostList, "frEaKy", []);
 
     expect(list.length).toEqual(1);
     expect(list[0]).toEqual(dummyPostList[2]);
+  });
+  it("finds posts which have the right category", () => {
+    const list = filterPosts(dummyPostList, "", ["Remix"]);
+    const secondList = filterPosts(dummyPostList, "", ["SSR"]);
+
+    expect(list.length).toEqual(2);
+    expect(list[0]).toEqual(dummyPostList[0]);
+    expect(list[1]).toEqual(dummyPostList[1]);
+    expect(secondList.length).toEqual(1);
+    expect(secondList[0]).toEqual(dummyPostList[2]);
   });
 });

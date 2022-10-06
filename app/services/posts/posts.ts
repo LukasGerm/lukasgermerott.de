@@ -31,12 +31,17 @@ export async function getPost(slugName: string) {
  * @param posts
  * @param search
  */
-export function filterPosts(posts: Post[], search: string) {
-  const lowercaseSearch = search.toLowerCase();
+export function filterPosts(
+  posts: Post[],
+  search: string | null,
+  categories: string[]
+) {
+  const lowercaseSearch = search ? search.toLowerCase() : "";
   return posts.filter(
     (post) =>
-      post.slug.toLowerCase().includes(lowercaseSearch) ||
-      post.title.toLowerCase().includes(lowercaseSearch)
+      (post.slug.toLowerCase().includes(lowercaseSearch) ||
+        post.title.toLowerCase().includes(lowercaseSearch)) &&
+      categories?.every((category) => post.categories.includes(category))
   );
 }
 
@@ -66,7 +71,10 @@ bindings.push({
  * Gets all posts
  * @param search the search value to filter
  */
-export async function getPosts(search?: string | null): Promise<Post[]> {
+export async function getPosts(
+  search?: string | null,
+  categories?: string[]
+): Promise<Post[]> {
   const postsPath = path.join(__dirname, "../app/posts");
 
   let dir = await fs.readdir(postsPath);
@@ -92,9 +100,12 @@ export async function getPosts(search?: string | null): Promise<Post[]> {
         publishedAt: attr.publishedAt,
         spoilerImageLink: attr.spoilerImageLink,
         description: attr.description,
+        categories: attr.categories
+          ? attr.categories.split(",").map((cat) => cat.trim())
+          : [],
       } as Post;
     })
   ).then((posts) => {
-    return search ? filterPosts(posts, search) : posts;
+    return filterPosts(posts, search || "", categories || []);
   });
 }
