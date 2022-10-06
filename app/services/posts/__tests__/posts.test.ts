@@ -135,19 +135,19 @@ describe("filterPosts", () => {
     },
   ];
   it("handles title filter okay", () => {
-    const list = filterPosts(dummyPostList, "freaky");
+    const list = filterPosts(dummyPostList, "freaky", []);
 
     expect(list.length).toEqual(1);
     expect(list[0]).toEqual(dummyPostList[2]);
   });
 
   it("handles slug filter okay", () => {
-    const list = filterPosts(dummyPostList, "funny");
+    const list = filterPosts(dummyPostList, "funny", []);
     expect(list.length).toEqual(1);
     expect(list[0]).toEqual(dummyPostList[2]);
   });
   it("handles title filter not case sensitive", () => {
-    const list = filterPosts(dummyPostList, "frEaKy");
+    const list = filterPosts(dummyPostList, "frEaKy", []);
 
     expect(list.length).toEqual(1);
     expect(list[0]).toEqual(dummyPostList[2]);

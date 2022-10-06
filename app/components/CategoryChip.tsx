@@ -1,18 +1,27 @@
 import React from "react";
 
 import { useState } from "react";
-import PostReducerAction from "~/services/posts/types/PostReducerAction";
+import {
+  PostReducerActionType,
+  PostReducerAction,
+} from "../services/posts/types/PostReducerAction";
 
 export const CategoryChip = (props: {
   name: string;
-  onChange: (value: PostReducerAction) => void;
+  dispatch: (value: PostReducerAction) => void;
+  active: boolean;
 }) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(props.active);
   const inactiveClasses = "border-2 border-primary text-gray-200";
   const activeClasses = "bg-primary text-card";
 
   const handleClick = () => {
-    props.onChange({ type: !active ? "ADD" : "REMOVE", value: props.name });
+    props.dispatch({
+      type: !active
+        ? PostReducerActionType.ADD_CATEGORY
+        : PostReducerActionType.REMOVE_CATEGORY,
+      value: props.name,
+    });
     setActive(!active);
   };
 

@@ -1,10 +1,11 @@
 import React, { useMemo } from "react";
+import { PostReducerAction } from "~/services/posts/types/PostReducerAction";
 import { Post } from "~/services/posts/types/Post";
-import PostReducerAction from "~/services/posts/types/PostReducerAction";
 import { CategoryChip } from "./CategoryChip";
 
 interface CategoriesProps {
-  handleChange(action: PostReducerAction): void;
+  dispatch(action: PostReducerAction): void;
+  activeCategories: string[];
   posts: Post[];
 }
 
@@ -37,7 +38,8 @@ const Categories = (props: CategoriesProps) => {
         <CategoryChip
           key={category}
           name={category}
-          onChange={props.handleChange}
+          dispatch={props.dispatch}
+          active={props.activeCategories.includes(category)}
         />
       ))}
     </div>

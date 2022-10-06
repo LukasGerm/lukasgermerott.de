@@ -36,7 +36,11 @@ describe("<Categories />", () => {
 
   it("shows all the available categories", async () => {
     const { findByText } = render(
-      <Categories posts={dummyPostList} handleChange={jest.fn} />
+      <Categories
+        posts={dummyPostList}
+        dispatch={jest.fn}
+        activeCategories={[]}
+      />
     );
 
     expect(await findByText(/SSR/i)).toBeInTheDocument();
@@ -49,7 +53,11 @@ describe("<Categories />", () => {
     const handleChange = jest.fn();
 
     const { findByText } = render(
-      <Categories posts={dummyPostList} handleChange={handleChange} />
+      <Categories
+        posts={dummyPostList}
+        dispatch={handleChange}
+        activeCategories={[]}
+      />
     );
 
     fireEvent.click(await findByText(/SSR/i));
@@ -57,11 +65,11 @@ describe("<Categories />", () => {
 
     expect(handleChange.mock.calls.length).toEqual(2);
     expect(handleChange.mock.calls[0][0]).toEqual({
-      type: "ADD",
+      type: "ADD_CATEGORY",
       value: "SSR",
     });
     expect(handleChange.mock.calls[1][0]).toEqual({
-      type: "REMOVE",
+      type: "REMOVE_CATEGORY",
       value: "SSR",
     });
   });
