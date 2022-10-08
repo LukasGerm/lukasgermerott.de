@@ -1,5 +1,5 @@
+import { Form } from "@remix-run/react";
 import React from "react";
-import { Form } from "remix";
 import {
   PostReducerActionType,
   PostReducerAction,

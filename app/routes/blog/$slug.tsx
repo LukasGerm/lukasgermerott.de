@@ -1,6 +1,7 @@
 import { format, parse } from "date-fns";
 import { useEffect } from "react";
-import { LoaderFunction, MetaFunction, useLoaderData } from "remix";
+import { useLoaderData } from "@remix-run/react";
+import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import Button from "~/components/Button";
 import Container from "~/components/Container";
 import Typography from "~/components/Typography";

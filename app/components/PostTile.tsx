@@ -1,6 +1,6 @@
+import { Link } from "@remix-run/react";
 import { format, parse } from "date-fns";
 import React from "react";
-import { Link } from "remix";
 import { Post } from "~/services/posts/types/Post";
 import { GridItem } from "./Grid";
 import Typography from "./Typography";

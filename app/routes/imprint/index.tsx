@@ -1,5 +1,5 @@
+import { MetaFunction } from "@remix-run/node";
 import React from "react";
-import { MetaFunction } from "remix";
 import Container from "~/components/Container";
 import Typography from "~/components/Typography";
 

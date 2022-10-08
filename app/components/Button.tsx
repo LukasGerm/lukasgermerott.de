@@ -1,5 +1,5 @@
+import { Link } from "@remix-run/react";
 import React from "react";
-import { Link } from "remix";
 
 interface ButtonProps {
   color?: "primary" | "text";
