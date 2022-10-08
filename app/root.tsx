@@ -88,10 +88,6 @@ function Document({
 
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta
-          name="description"
-          content="Hi, welcome to my website. Check it out for interesting articles and other cool new projects every week."
-        />
         {title ? <title>{title}</title> : null}
         <Meta />
         <Links />
