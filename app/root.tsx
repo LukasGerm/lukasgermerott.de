@@ -1,17 +1,5 @@
 import * as React from "react";
-import {
-  Links,
-  LiveReload,
-  LoaderFunction,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useCatch,
-  useLoaderData,
-  useLocation,
-} from "remix";
-import type { LinksFunction } from "remix";
+
 import LogoBanner from "./assets/Banner.png";
 import styles from "./styles/app.css";
 import Navigation from "./components/Navigation";
@@ -20,6 +8,18 @@ import highlight from "highlight.js/styles/atom-one-dark.css";
 import NotFoundBoundary from "./components/NotFoundBoundary";
 import { Config } from "./services/config/types/Config";
 import { getConfig } from "./services/config/config";
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useCatch,
+  useLoaderData,
+  useLocation,
+} from "@remix-run/react";
+import { LoaderFunction, LinksFunction } from "@remix-run/node";
 
 export let loader: LoaderFunction = () => {
   return getConfig();
@@ -184,7 +184,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
 /**
  * Provides an alert for screen reader users when the route changes.
  */
-const RouteChangeAnnouncement = React.memo(() => {
+const RouteChangeAnnouncement = React.memo(function RouteChangeAnnouncement() {
   let [hydrated, setHydrated] = React.useState(false);
   let [innerHtml, setInnerHtml] = React.useState("");
   let location = useLocation();

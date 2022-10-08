@@ -12,7 +12,10 @@
       "~/*": ["./app/*"]
     },
     "types": ["jest", "node"],
-    // Remix takes care of building everything in `remix build`.
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": ".",
+    "allowJs": false,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true
   }
 }

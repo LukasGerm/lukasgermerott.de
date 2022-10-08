@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import Input from "../Input";
 import userEvent from "@testing-library/user-event";
 
@@ -13,7 +13,9 @@ describe("<Input />", () => {
       <Input name="testInput" value="" onChange={handleChange} />
     );
     userEvent.type(await findByRole("textbox"), "Test");
-    expect(value).toEqual("Test");
+    await waitFor(() => {
+      expect(value).toEqual("Test");
+    });
   });
   it("Shows placeholder", () => {
     const { getByPlaceholderText } = render(

@@ -1,4 +1,4 @@
-import { MetaFunction } from "remix";
+import { MetaFunction } from "@remix-run/react/dist/routeModules";
 import Button from "~/components/Button";
 import Container from "~/components/Container";
 import Grid, { GridItem } from "~/components/Grid";

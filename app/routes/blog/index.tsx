@@ -1,6 +1,6 @@
-import { useLoaderData, MetaFunction, useSubmit, useSearchParams } from "remix";
+import { useLoaderData, useSubmit, useSearchParams } from "@remix-run/react";
 
-import type { LoaderFunction } from "remix";
+import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { getPosts } from "~/services/posts/posts";
 import { Post } from "~/services/posts/types/Post";
 import Typography from "~/components/Typography";

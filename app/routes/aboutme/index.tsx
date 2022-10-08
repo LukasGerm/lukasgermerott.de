@@ -1,4 +1,4 @@
-import { MetaFunction } from "@remix-run/react/routeModules";
+import { MetaFunction } from "@remix-run/node";
 import React from "react";
 import Container from "~/components/Container";
 import Typography from "~/components/Typography";
