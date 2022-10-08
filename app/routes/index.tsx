@@ -9,9 +9,11 @@ import ProfilePicture from "../assets/profile.jpg";
 export let meta: MetaFunction = () => {
   return {
     title: "Home | Lukas Germerott",
-    description: "Welcome to the homepage of lukas",
+    description:
+      "Hi, welcome to my website. Check it out for interesting articles and other cool new projects every week.",
     "og:title": "Lukas Germerott Softwareengineering",
-    "og:description": "Welcome to the homepage of lukas.",
+    "og:description":
+      "Hi, welcome to my website. Check it out for interesting articles and other cool new projects every week..",
     "og:image": ProfilePicture,
   };
 };
@@ -23,10 +25,16 @@ export default function Index() {
       <Grid className="h-full overflow-y-hidden">
         <GridItem className="xl:col-span-4 col-span-6">
           <Container className="lg:px-24">
-            <Typography className="font-light leading-tight text-3xl sm:text-5xl lg:text-7xl">
+            <Typography
+              variant="h1"
+              className="font-light leading-tight text-3xl sm:text-5xl lg:text-7xl"
+            >
               Change the Web <br /> through quality Software
             </Typography>
-            <Typography className="pt-4 leading-relaxed font-light text-lg sm:text-xl lg:text-2xl">
+            <Typography
+              variant="h2"
+              className="pt-4 leading-relaxed font-light text-lg sm:text-xl lg:text-2xl"
+            >
               I want to help make the web a better and more useable place for
               all of us with my knowledge and my ideas. Read about my journeys
               and find useful tips below on my blog.
