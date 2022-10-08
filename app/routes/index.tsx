@@ -19,7 +19,7 @@ export let meta: MetaFunction = () => {
 // https://remix.run/guides/routing#index-routes
 export default function Index() {
   return (
-    <Container padding={12}>
+    <Container padding={6}>
       <Grid className="h-full overflow-y-hidden">
         <GridItem className="xl:col-span-4 col-span-6">
           <Container className="lg:px-24">

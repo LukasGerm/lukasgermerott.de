@@ -114,7 +114,7 @@ function Document({
 function Layout({ children }: React.PropsWithChildren<{}>) {
   return (
     <div>
-      <header className="z-50 fixed w-full flex justify-between items-center px-12 py-4">
+      <header className="z-50 fixed w-full flex justify-between items-center px-6 py-4 pointer-events-none">
         <div className="hidden md:block">
           <img
             src={LogoBanner}

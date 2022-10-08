@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "remix";
 import Typography from "./Typography";
 import Favicon from "../assets/favicon.png";
 import Divider from "./Divider";
 import ExternalLink from "./ExternalLink";
 import GithubPicture from "../assets/github.png";
+import { Link } from "@remix-run/react";
 interface IconProps {
   onClick?(): void;
 }
@@ -61,14 +61,16 @@ const Navigation = () => {
   };
 
   return (
-    <div className="bg-card px-8 py-4 rounded-2xl w-full md:w-auto">
+    <div className="bg-card px-8 py-4 rounded-2xl w-full md:w-auto pointer-events-auto">
       <nav aria-label="Main navigation">
         <div className="md:hidden cursor-pointer flex justify-between items-center">
-          <img
-            src={Favicon}
-            className="max-h-10"
-            alt="Lukas Germerott Favicon"
-          />
+          <Link to="/">
+            <img
+              src={Favicon}
+              className="max-h-10"
+              alt="Lukas Germerott Favicon"
+            />
+          </Link>
           <div className="h-8 w-8 md:hidden">
             {mobileOpen ? (
               <CloseIcon onClick={handleClose} />
