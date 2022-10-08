@@ -18,7 +18,6 @@ import Navigation from "./components/Navigation";
 import Favicon from "./assets/favicon.png";
 import highlight from "highlight.js/styles/atom-one-dark.css";
 import NotFoundBoundary from "./components/NotFoundBoundary";
-import { MatomoProvider, createInstance } from "@datapunt/matomo-tracker-react";
 import { Config } from "./services/config/types/Config";
 import { getConfig } from "./services/config/config";
 
@@ -42,17 +41,11 @@ export let links: LinksFunction = () => {
 export default function App() {
   const loaderData = useLoaderData<Config>();
 
-  const instance = createInstance({
-    urlBase: loaderData.matomo.urlBase,
-    siteId: loaderData.matomo.siteId,
-  });
   return (
-    <Document>
-      <MatomoProvider value={instance}>
-        <Layout>
-          <Outlet />
-        </Layout>
-      </MatomoProvider>
+    <Document googleAnalyticsCode={loaderData.googleAnalyticsCode}>
+      <Layout>
+        <Outlet />
+      </Layout>
     </Document>
   );
 }
@@ -60,13 +53,39 @@ export default function App() {
 function Document({
   children,
   title,
+  googleAnalyticsCode,
 }: {
   children: React.ReactNode;
   title?: string;
+  googleAnalyticsCode?: string;
 }) {
   return (
     <html lang="en">
       <head>
+        {googleAnalyticsCode && (
+          <>
+            <script
+              async
+              src={
+                "https://www.googletagmanager.com/gtag/js?id=" +
+                googleAnalyticsCode
+              }
+            ></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+            <!-- Google tag (gtag.js) -->
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', '${googleAnalyticsCode}');
+        `,
+              }}
+            />
+          </>
+        )}
+
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta
