@@ -14,6 +14,7 @@ import {
   PostReducerActionType,
   PostReducerAction,
 } from "~/services/posts/types/PostReducerAction";
+import Container from "~/components/Container";
 
 export let meta: MetaFunction = () => {
   return {
@@ -83,40 +84,42 @@ export default function BlogList() {
   }, [state, searchParams, submit]);
 
   return (
-    <div className="bg-background px-10">
-      <Typography variant="h2" className="text-center">
-        Blog
-      </Typography>
-      <section>
-        <Search dispatch={dispatch} query={state.query} />
-      </section>
-      <section>
-        <div className="max-w-screen-xl ml-auto mr-auto mt-10">
-          <Categories
-            posts={posts}
-            dispatch={dispatch}
-            activeCategories={state.categories}
-          />
-        </div>
-      </section>
-      <PostList posts={posts} />
-      <section>
-        <div className="mt-10 pb-10">
-          <Typography variant="h2" className="text-center">
-            Newsletter
-          </Typography>
-          <Typography className="text-center mt-5">
-            By subscribing to my newsletter, you won't miss any blogposts.
-            <br />
-            Click the button below to enter your data.
-          </Typography>
-          <div className="flex justify-center mt-5">
-            <Button className="rm-open-popup" color="primary" large>
-              Subscribe
-            </Button>
+    <div className="bg-background">
+      <Container padding={6}>
+        <Typography variant="h2" className="text-center">
+          Blog
+        </Typography>
+        <section>
+          <Search dispatch={dispatch} query={state.query} />
+        </section>
+        <section>
+          <div className="max-w-screen-xl ml-auto mr-auto mt-10">
+            <Categories
+              posts={posts}
+              dispatch={dispatch}
+              activeCategories={state.categories}
+            />
           </div>
-        </div>
-      </section>
+        </section>
+        <PostList posts={posts} />
+        <section>
+          <div className="mt-10 pb-10">
+            <Typography variant="h2" className="text-center">
+              Newsletter
+            </Typography>
+            <Typography className="text-center mt-5">
+              By subscribing to my newsletter, you won't miss any blogposts.
+              <br />
+              Click the button below to enter your data.
+            </Typography>
+            <div className="flex justify-center mt-5">
+              <Button className="rm-open-popup" color="primary" large>
+                Subscribe
+              </Button>
+            </div>
+          </div>
+        </section>
+      </Container>
     </div>
   );
 }

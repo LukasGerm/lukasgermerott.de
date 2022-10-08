@@ -45,7 +45,7 @@ export default function BlogArticle() {
 
   return (
     <div className="bg-background">
-      <Container padding={12}>
+      <Container padding={6}>
         <div className="text-gray-200 max-w-screen-sm ml-auto mr-auto mt-10 pb-10">
           <Button
             link="/blog"
