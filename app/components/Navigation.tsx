@@ -5,6 +5,9 @@ import Divider from "./Divider";
 import ExternalLink from "./ExternalLink";
 import GithubPicture from "../assets/github.png";
 import { Link } from "@remix-run/react";
+
+import LogoBanner from "../assets/Banner.png";
+
 interface IconProps {
   onClick?(): void;
 }
@@ -61,7 +64,7 @@ const Navigation = () => {
   };
 
   return (
-    <div className="bg-card px-8 py-4 rounded-2xl w-full md:w-auto pointer-events-auto">
+    <div className="bg-card px-8 py-4 w-full md:w-auto">
       <nav aria-label="Main navigation">
         <div className="md:hidden cursor-pointer flex justify-between items-center">
           <Link to="/">
@@ -83,32 +86,47 @@ const Navigation = () => {
             )}
           </div>
         </div>
-        <ul className="items-center hidden md:flex">
-          <li className="mr-10">
+        <ul className="items-center hidden md:flex justify-between">
+          <div>
             <Link to="/">
-              <Typography hover>Home</Typography>
+              <img
+                src={LogoBanner}
+                className="max-h-14"
+                alt="Lukas Germerott Logo"
+              />
             </Link>
-          </li>
-          <li className="mr-10">
-            <Link to="/blog">
-              <Typography hover>Blog</Typography>
-            </Link>
-          </li>
-          <li className="mr-10 ">
-            <Link to="/aboutme">
-              <Typography hover>About Me</Typography>
-            </Link>
-          </li>
-          <li className="mr-10">
-            <Link to="/imprint">
-              <Typography hover>Imprint</Typography>
-            </Link>
-          </li>
-          <li>
-            <ExternalLink href="https://github.com/LukasGerm">
-              <img src={GithubPicture} className="max-h-8" alt="Github link" />
-            </ExternalLink>
-          </li>
+          </div>
+          <div className="flex items-center gap-10">
+            <li>
+              <Link to="/">
+                <Typography hover>Home</Typography>
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog">
+                <Typography hover>Blog</Typography>
+              </Link>
+            </li>
+            <li>
+              <Link to="/aboutme">
+                <Typography hover>About Me</Typography>
+              </Link>
+            </li>
+            <li>
+              <Link to="/imprint">
+                <Typography hover>Imprint</Typography>
+              </Link>
+            </li>
+            <li>
+              <ExternalLink href="https://github.com/LukasGerm">
+                <img
+                  src={GithubPicture}
+                  className="max-h-8"
+                  alt="Github link"
+                />
+              </ExternalLink>
+            </li>
+          </div>
         </ul>
         <div className={(!mobileOpen ? "hidden" : "") + " md:hidden"}>
           <ul className="flex flex-col">
