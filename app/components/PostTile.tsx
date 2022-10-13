@@ -22,7 +22,7 @@ const PostTile = (props: PostTileProps) => {
       <Link to={"/blog/" + post.slug}>
         <article>
           <div className="bg-card rounded-2xl cursor-pointer">
-            <div className="hover:blur-sm ">
+            <div className="sm:hover:blur-sm transition-all ease-in-out duration-300">
               <img
                 loading="lazy"
                 className="h-96 object-cover rounded-2xl select-none"
