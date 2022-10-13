@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import LogoBanner from "./assets/Banner.png";
 import styles from "./styles/app.css";
 import Navigation from "./components/Navigation";
 import Favicon from "./assets/favicon.png";
@@ -110,15 +109,7 @@ function Document({
 function Layout({ children }: React.PropsWithChildren<{}>) {
   return (
     <div>
-      <header className="z-50 fixed w-full flex justify-between items-center px-6 py-4 pointer-events-none">
-        <div className="hidden md:block">
-          <img
-            src={LogoBanner}
-            className="max-h-16"
-            alt="Lukas Germerott Logo"
-          />
-        </div>
-
+      <header className="absolute w-full">
         <Navigation />
       </header>
       <main>
