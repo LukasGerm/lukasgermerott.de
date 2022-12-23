@@ -57,7 +57,7 @@ const CloseIcon = (props: IconProps) => {
   );
 };
 
-const Navigation = () => {
+const Navigation = (props: { activateBlog?: boolean }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useTranslation();
   const handleClose = () => {
@@ -102,11 +102,13 @@ const Navigation = () => {
                 <Typography hover>{t("Home")}</Typography>
               </Link>
             </li>
-            <li>
-              <Link to="/blog">
-                <Typography hover>{t("Blog")}</Typography>
-              </Link>
-            </li>
+            {props.activateBlog && (
+              <li>
+                <Link to="/blog">
+                  <Typography hover>{t("Blog")}</Typography>
+                </Link>
+              </li>
+            )}
             <li>
               <Link to="/aboutme">
                 <Typography hover>{t("About Me")}</Typography>
@@ -136,12 +138,16 @@ const Navigation = () => {
               </Link>
             </li>
             <Divider />
-            <li className="p-2" onClick={handleClose}>
-              <Link to="/blog">
-                <Typography hover>{t("Blog")}</Typography>
-              </Link>
-            </li>
-            <Divider />
+            {props.activateBlog && (
+              <>
+                <li className="p-2" onClick={handleClose}>
+                  <Link to="/blog">
+                    <Typography hover>{t("Blog")}</Typography>
+                  </Link>
+                </li>
+                <Divider />
+              </>
+            )}
 
             <li className="p-2" onClick={handleClose}>
               <Link to="/aboutme">

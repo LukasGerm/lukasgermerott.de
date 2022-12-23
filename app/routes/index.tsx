@@ -1,12 +1,15 @@
 import type { MetaFunction } from "@remix-run/react/dist/routeModules";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import type { LoaderFunction } from "@remix-run/node";
 import Button from "~/components/Button";
 import Container from "~/components/Container";
 import Grid, { GridItem } from "~/components/Grid";
 import Typography from "~/components/Typography";
 import HomeDrawing from "../assets/home_drawing.svg";
 import ProfilePicture from "../assets/profile.jpg";
+import { isFeatureActive } from "~/services/featureFlags/featureFlags";
+import { useLoaderData } from "remix";
 
 export let meta: MetaFunction = () => {
   return {
@@ -22,9 +25,20 @@ export let meta: MetaFunction = () => {
   };
 };
 
+export let loader: LoaderFunction = () => {
+  return {
+    activateBlog: isFeatureActive("blog"),
+  };
+};
+
+interface LoaderData {
+  activateBlog: boolean;
+}
+
 // https://remix.run/guides/routing#index-routes
 export default function Index() {
   const { t } = useTranslation();
+  const { activateBlog } = useLoaderData<LoaderData>();
   return (
     <Container padding={6}>
       <Grid className="h-full overflow-y-hidden">
@@ -48,9 +62,11 @@ export default function Index() {
               <Button large link="/aboutme" color="primary">
                 {t("About Me")}
               </Button>
-              <Button large link="/blog" className="ml-8">
-                {t("To my Blog")}
-              </Button>
+              {activateBlog && (
+                <Button large link="/blog" className="ml-8">
+                  {t("To my Blog")}
+                </Button>
+              )}
             </div>
           </Container>
         </GridItem>

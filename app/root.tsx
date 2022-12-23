@@ -19,11 +19,13 @@ import {
   useLocation,
 } from "@remix-run/react";
 import type { LoaderFunction, LinksFunction } from "@remix-run/node";
+import { isFeatureActive } from "./services/featureFlags/featureFlags";
 
 export let loader: LoaderFunction = () => {
   return {
     config: getConfig(),
     locale: process.env.LANGUAGE,
+    activateBlog: isFeatureActive("blog"),
   };
 };
 
@@ -47,14 +49,17 @@ export let handle = {
  * component for your app.
  */
 export default function App() {
-  const loaderData = useLoaderData<{ config: Config; locale: string }>();
-
+  const loaderData = useLoaderData<{
+    config: Config;
+    locale: string;
+    activateBlog: boolean;
+  }>();
   return (
     <Document
       language={loaderData.locale}
       googleAnalyticsCode={loaderData.config.googleAnalyticsCode}
     >
-      <Layout>
+      <Layout activateBlog={loaderData.activateBlog}>
         <Outlet />
       </Layout>
     </Document>
@@ -120,11 +125,14 @@ function Document({
   );
 }
 
-function Layout({ children }: React.PropsWithChildren<{}>) {
+function Layout({
+  children,
+  activateBlog,
+}: React.PropsWithChildren<{ activateBlog?: boolean }>) {
   return (
     <div>
       <header className="absolute w-full">
-        <Navigation />
+        <Navigation activateBlog={activateBlog} />
       </header>
       <main>
         <div className="bg-background h-screen pt-32">{children}</div>
