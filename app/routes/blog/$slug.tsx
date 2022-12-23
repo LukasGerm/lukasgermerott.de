@@ -1,15 +1,16 @@
 import { format, parse } from "date-fns";
 import { useEffect } from "react";
 import { useLoaderData } from "@remix-run/react";
-import { LoaderFunction, MetaFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import Button from "~/components/Button";
 import Container from "~/components/Container";
 import Typography from "~/components/Typography";
 import { getPost } from "~/services/posts/posts";
-import { Post } from "~/services/posts/types/Post";
+import type { Post } from "~/services/posts/types/Post";
 import hljs from "highlight.js";
 import NotFoundBoundary from "~/components/NotFoundBoundary";
 import AuthorCard from "~/components/AuthorCard";
+import { useTranslation } from "react-i18next";
 
 export let meta: MetaFunction = ({ data }: { data: Post }) => {
   return {
@@ -36,7 +37,7 @@ export let loader: LoaderFunction = async ({ params }) => {
 
 export default function BlogArticle() {
   const post = useLoaderData<Post | null>();
-
+  const { t } = useTranslation();
   useEffect(() => {
     hljs.highlightAll();
   });
@@ -67,7 +68,7 @@ export default function BlogArticle() {
               </svg>
             }
           >
-            Back to overview
+            {t("Back to overview")}
           </Button>
           <img
             src={post.spoilerImageLink}
@@ -78,7 +79,7 @@ export default function BlogArticle() {
             {post.title}
           </Typography>
           <Typography className="font-extralight">
-            Published at{" "}
+            {t("Published at")}{" "}
             {format(
               parse(post.publishedAt, "dd.MM.yyyy", new Date()),
               "dd MMMM yyyy"

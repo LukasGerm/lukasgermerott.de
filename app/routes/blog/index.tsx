@@ -1,8 +1,8 @@
 import { useLoaderData, useSubmit, useSearchParams } from "@remix-run/react";
 
-import { LoaderFunction, MetaFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { getPosts } from "~/services/posts/posts";
-import { Post } from "~/services/posts/types/Post";
+import type { Post } from "~/services/posts/types/Post";
 import Typography from "~/components/Typography";
 import Search from "~/components/Search";
 import Button from "~/components/Button";
@@ -10,18 +10,18 @@ import PostList from "~/components/PostList";
 import ProfilePicture from "../../assets/profile.jpg";
 import Categories from "~/components/Categories";
 import { useEffect, useReducer } from "react";
-import {
-  PostReducerActionType,
-  PostReducerAction,
-} from "~/services/posts/types/PostReducerAction";
+import { PostReducerActionType } from "~/services/posts/types/PostReducerAction";
+import type { PostReducerAction } from "~/services/posts/types/PostReducerAction";
 import Container from "~/components/Container";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 export let meta: MetaFunction = () => {
   return {
-    title: "Blog | Lukas Germerott",
-    description: "Cool tips and tutorials all about web development.",
-    "og:title": "Blog | Lukas Germerott",
-    "og:description": "Cool tips and tutorials all about web development.",
+    title: t("Blog") + " | Lukas Germerott",
+    description: t("Cool tips and tutorials all about web development."),
+    "og:title": t("Blog") + " | Lukas Germerott",
+    "og:description": t("Cool tips and tutorials all about web development."),
     "og:image": ProfilePicture,
   };
 };
@@ -69,6 +69,7 @@ export default function BlogList() {
   const posts = useLoaderData<Post[]>();
   const submit = useSubmit();
   const [searchParams] = useSearchParams();
+  const { t } = useTranslation();
 
   const [state, dispatch] = useReducer(reducer, {
     categories: getCategoriesFromSearch(searchParams.get("categories")),
@@ -87,7 +88,7 @@ export default function BlogList() {
     <div className="bg-background">
       <Container padding={6}>
         <Typography variant="h2" className="text-center">
-          Blog
+          {t("Blog")}
         </Typography>
         <section>
           <Search dispatch={dispatch} query={state.query} />
@@ -105,16 +106,19 @@ export default function BlogList() {
         <section>
           <div className="mt-10 pb-10">
             <Typography variant="h2" className="text-center">
-              Newsletter
+              {t("Newsletter")}
             </Typography>
             <Typography className="text-center mt-5">
-              By subscribing to my newsletter, you won't miss any blogposts.
-              <br />
-              Click the button below to enter your data.
+              {t(
+                "By subscribing to my newsletter, you won't miss any blogposts."
+              )}
+            </Typography>
+            <Typography className="text-center mt-5">
+              {t("Click the button below to enter your data.")}
             </Typography>
             <div className="flex justify-center mt-5">
               <Button className="rm-open-popup" color="primary" large>
-                Subscribe
+                {t("Subscribe")}
               </Button>
             </div>
           </div>

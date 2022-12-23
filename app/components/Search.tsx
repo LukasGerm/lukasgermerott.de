@@ -1,9 +1,7 @@
 import { Form } from "@remix-run/react";
 import React from "react";
-import {
-  PostReducerActionType,
-  PostReducerAction,
-} from "~/services/posts/types/PostReducerAction";
+import { PostReducerActionType } from "~/services/posts/types/PostReducerAction";
+import type { PostReducerAction } from "~/services/posts/types/PostReducerAction";
 import Input from "./Input";
 
 /**

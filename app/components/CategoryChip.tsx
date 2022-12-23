@@ -1,10 +1,8 @@
 import React from "react";
 
 import { useState } from "react";
-import {
-  PostReducerActionType,
-  PostReducerAction,
-} from "../services/posts/types/PostReducerAction";
+import { PostReducerActionType } from "../services/posts/types/PostReducerAction";
+import type { PostReducerAction } from "../services/posts/types/PostReducerAction";
 
 export const CategoryChip = (props: {
   name: string;

@@ -2,6 +2,7 @@ import Card from "./Card";
 import Typography from "./Typography";
 import ProfilePicture from "../assets/profile.jpg";
 import Button from "./Button";
+import { useTranslation } from "react-i18next";
 
 interface AuthorCardProps {
   className?: string;
@@ -13,6 +14,7 @@ interface AuthorCardProps {
  * @returns
  */
 const AuthorCard = (props: AuthorCardProps) => {
+  const { t } = useTranslation();
   return (
     <Card className={props.className}>
       <div className="grid grid-cols-6 gap-4 items-center">
@@ -25,16 +27,17 @@ const AuthorCard = (props: AuthorCardProps) => {
         </div>
         <div className="col-span-6 md:col-span-3">
           <Typography variant="h3" className="font-light">
-            About the author
+            {t("About the Author")}
           </Typography>
           <Typography className="font-light pt-4 leading-7">
-            Lukas Germerott is a Frontend Developer from germany with years of
-            experience in creating software primarily in the b2b sector.
+            {t(
+              "Lukas Germerott is a Frontend Developer from germany with years of experience in creating software primarily for customers."
+            )}
           </Typography>
         </div>
         <div className="col-span-6 md:col-span-2 flex justify-end">
           <Button className="rm-open-popup" color="primary" large>
-            Subscribe
+            {t("Subscribe")}
           </Button>
         </div>
       </div>

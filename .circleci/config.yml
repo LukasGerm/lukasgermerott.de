@@ -1,28 +1,31 @@
-# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 
-
 orbs:
-  node: circleci/node@5.0.0
-
+  node: circleci/node@5.0.3
 
 jobs:
-  install-job:
+  install:
     docker:
-      # replace with your preferred image
-      - image: cimg/base:stable
+      - image: "cimg/node:16.17.0"
     steps:
-      - node/install:
-          install-yarn: true 
-          node-version: '16.14' 
-
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+  test_unit:
+    docker:
+      - image: "cimg/node:16.17.0"
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run: yarn test:unit
 workflows:
   lukasgermerott:
     jobs:
-      - node/test:
-          pkg-manager: yarn 
-          run-command: test:unit 
-          test-results-for: jest 
-          test-results-path: junit.xml 
-          
-        
+      - install
+      - test_unit:
+          requires:
+            - install

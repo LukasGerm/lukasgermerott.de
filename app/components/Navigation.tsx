@@ -7,6 +7,7 @@ import GithubPicture from "../assets/github.png";
 import { Link } from "@remix-run/react";
 
 import LogoBanner from "../assets/Banner.png";
+import { useTranslation } from "react-i18next";
 
 interface IconProps {
   onClick?(): void;
@@ -58,11 +59,10 @@ const CloseIcon = (props: IconProps) => {
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-
+  const { t } = useTranslation();
   const handleClose = () => {
     setMobileOpen(false);
   };
-
   return (
     <div className="bg-card px-8 py-4 w-full md:w-auto">
       <nav aria-label="Main navigation">
@@ -99,22 +99,22 @@ const Navigation = () => {
           <div className="flex items-center gap-10">
             <li>
               <Link to="/">
-                <Typography hover>Home</Typography>
+                <Typography hover>{t("Home")}</Typography>
               </Link>
             </li>
             <li>
               <Link to="/blog">
-                <Typography hover>Blog</Typography>
+                <Typography hover>{t("Blog")}</Typography>
               </Link>
             </li>
             <li>
               <Link to="/aboutme">
-                <Typography hover>About Me</Typography>
+                <Typography hover>{t("About Me")}</Typography>
               </Link>
             </li>
             <li>
               <Link to="/imprint">
-                <Typography hover>Imprint</Typography>
+                <Typography hover>{t("Imprint")}</Typography>
               </Link>
             </li>
             <li>
@@ -132,27 +132,27 @@ const Navigation = () => {
           <ul className="flex flex-col">
             <li className="p-2" onClick={handleClose}>
               <Link to="/">
-                <Typography hover>Home</Typography>
+                <Typography hover>{t("Home")}</Typography>
               </Link>
             </li>
             <Divider />
             <li className="p-2" onClick={handleClose}>
               <Link to="/blog">
-                <Typography hover>Blog</Typography>
+                <Typography hover>{t("Blog")}</Typography>
               </Link>
             </li>
             <Divider />
 
             <li className="p-2" onClick={handleClose}>
               <Link to="/aboutme">
-                <Typography hover>About Me</Typography>
+                <Typography hover>{t("About Me")}</Typography>
               </Link>
             </li>
             <Divider />
 
             <li className="p-2" onClick={handleClose}>
               <Link to="/imprint">
-                <Typography hover>Imprint</Typography>
+                <Typography hover>{t("Imprint")}</Typography>
               </Link>
             </li>
             <li className="p-2" onClick={handleClose}>

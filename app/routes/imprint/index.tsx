@@ -1,11 +1,12 @@
-import { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/node";
+import { t } from "i18next";
 import React from "react";
 import Container from "~/components/Container";
 import Typography from "~/components/Typography";
 
 export let meta: MetaFunction = () => {
   return {
-    title: "Imprint | Lukas Germerott",
+    title: t("Imprint") + " | Lukas Germerott",
     description: "Lukas Blog",
   };
 };
