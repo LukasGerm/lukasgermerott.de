@@ -1,18 +1,29 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: lukasgermerott-de
+  name: lukasgermerott-de-deployment
+  namespace: default
 spec:
-  containers:
-  - name: lukasgermerott
-    image: lukasgerm/lukasgermerott-de:1.0
-    env:
-    - name: GOOGLE_ANALYTICS_CODE
-      value: "UA-167972589-2"
-    - name: LANGUAGE
-      value: "de"
-    - name: FEATURE_BLOG
-      value: "false"
+  replicas: 2
+  selector:
+    matchLabels:
+      app: germerott
+  template:
+    metadata:
+      labels:
+        app: germerott
+    spec:
+      containers:
+      - name: lukasgermerott
+        image: lukasgerm/lukasgermerott-de:1.0
+        imagePullPolicy: Always
+        env:
+        - name: GOOGLE_ANALYTICS_CODE
+          value: "UA-167972589-2"
+        - name: LANGUAGE
+          value: "de"
+        - name: FEATURE_BLOG
+          value: "false"
 ---
 apiVersion: v1
 kind: Service
@@ -26,4 +37,6 @@ spec:
       targetPort: 3000
       # Optional field
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
-      nodePort: 30007
+      nodePort: 31324
+  selector:
+    app: germerott
