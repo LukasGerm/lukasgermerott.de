@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lukasgermerott-de
+spec:
+  containers:
+  - name: lukasgermerott
+    image: lukasgerm/lukasgermerott-de:1.0
+    env:
+    - name: GOOGLE_ANALYTICS_CODE
+      value: "UA-167972589-2"
+    - name: LANGUAGE
+      value: "de"
+    - name: FEATURE_BLOG
+      value: "false"
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: lukasgermerott-de-service
+spec:
+  type: NodePort
+  ports:
+      # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
+    - port: 3000
+      targetPort: 3000
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 30007

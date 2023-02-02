@@ -6,7 +6,7 @@ orbs:
 jobs:
   install:
     docker:
-      - image: "cimg/node:16.17.0"
+      - image: "cimg/node:18.12.1"
     steps:
       - checkout
       - node/install-packages:
@@ -17,7 +17,7 @@ jobs:
             - .
   test_unit:
     docker:
-      - image: "cimg/node:16.17.0"
+      - image: "cimg/node:18.12.1"
     steps:
       - attach_workspace:
           at: ~/project
