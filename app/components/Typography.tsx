@@ -10,6 +10,7 @@ interface TypographyProps {
    * Should a standard hover effect be applied
    */
   hover?: boolean;
+  overrideSize?: boolean;
 }
 
 /**
@@ -24,16 +25,32 @@ const Typography = (props: React.PropsWithChildren<TypographyProps>) => {
   }
   // check for variants
   if (props.variant === "h1") {
-    return <h1 className={className + " text-7xl"}>{props.children}</h1>;
+    return (
+      <h1 className={className + (!props.overrideSize ? " text-7xl" : "")}>
+        {props.children}
+      </h1>
+    );
   }
   if (props.variant === "h2") {
-    return <h2 className={className + " text-4xl"}>{props.children}</h2>;
+    return (
+      <h2 className={className + (!props.overrideSize ? " text-4xl" : "")}>
+        {props.children}
+      </h2>
+    );
   }
   if (props.variant === "h3") {
-    return <h3 className={className + " text-2xl"}>{props.children}</h3>;
+    return (
+      <h3 className={className + (!props.overrideSize ? " text-2xl" : "")}>
+        {props.children}
+      </h3>
+    );
   }
   if (props.variant === "h4") {
-    return <h3 className={className + " text-xl"}>{props.children}</h3>;
+    return (
+      <h3 className={className + (!props.overrideSize ? " text-xl" : "")}>
+        {props.children}
+      </h3>
+    );
   }
 
   return <p className={className}>{props.children}</p>;

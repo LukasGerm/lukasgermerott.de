@@ -5,6 +5,7 @@ type TextProps = React.PropsWithChildren<{ type?: "dark" | "light" }>;
 export const Subheading = (props: TextProps) => {
   return (
     <Typography
+      overrideSize
       variant="h2"
       className={
         "font-light leading-tight text-3xl " +
