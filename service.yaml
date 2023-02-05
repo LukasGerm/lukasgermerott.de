@@ -24,6 +24,12 @@ spec:
           value: "de"
         - name: FEATURE_BLOG
           value: "false"
+        - name: TURNSTILE_SITE_KEY
+          value: "SITE_KEY"
+        - name: TURNSTILE_SECRET
+          value: "SECRET"
+        - name: SENDGRID_KEY
+          value: "SENDGRID_KEY"
 ---
 apiVersion: v1
 kind: Service

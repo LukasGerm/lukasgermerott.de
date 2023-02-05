@@ -7,6 +7,9 @@ interface ButtonProps {
   link?: string;
   className?: string;
   iconLeft?: JSX.Element;
+  onClick?(): void;
+  type?: "submit" | "button";
+  disabled?: boolean;
 }
 
 /**
@@ -15,6 +18,7 @@ interface ButtonProps {
  * @returns
  */
 const getButtonColor = (props: ButtonProps) => {
+  if (props.disabled) return "bg-gray-500 text-gray-200 cursor-not-allowed";
   switch (props.color) {
     case "primary":
       return "bg-primary hover:bg-primaryHover focus:outline-primaryHover text-card";
@@ -45,8 +49,14 @@ const Button = (props: React.PropsWithChildren<ButtonProps>) => {
       </Link>
     );
   }
+
   return (
-    <button className={className + " flex"}>
+    <button
+      className={className + " flex"}
+      onClick={props.onClick}
+      type={props.type}
+      disabled={props.disabled}
+    >
       {props.iconLeft && props.iconLeft}
       <p className={props.iconLeft ? " ml-2.5" : ""}>{props.children}</p>
     </button>

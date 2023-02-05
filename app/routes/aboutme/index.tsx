@@ -8,6 +8,7 @@ import MoreToCome from "../../assets/more_come.svg";
 import ExternalLink from "~/components/ExternalLink";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
+import { Text } from "~/components/Text";
 
 export let meta: MetaFunction = () => {
   return {
@@ -24,25 +25,37 @@ export default function AboutMe() {
   return (
     <div className="bg-background">
       <div className="max-w-screen-xl ml-auto mr-auto">
-        <Container padding={6}>
+        <Container padding={12}>
           <Typography variant="h2" className="text-center">
             {t("About Me")}
           </Typography>
-          <div className="flex justify-between items-center mt-10 flex-col md:flex-row">
+          <div className="flex justify-between mt-10 flex-col md:flex-row md:items-start items-center">
             <img
-              className="rounded-full max-h-52"
+              className="rounded-xl max-h-52 object-cover max-w-md"
               alt="Lukas Germerott"
               src={ProfilePicture}
             />
             <div className="md:ml-24 mt-5 md:mt-0">
               <Typography className="font-semibold">
-                {t("Hi I'm Lukas Germerott")}
+                {t("Hey ich bin Lukas")}
               </Typography>
-              <Typography className="font-light leading-relaxed">
+              <Text>
                 {t(
-                  "I am a frontend engineer from germany. I work in the industry for about four years now. I would consider myself as a professional frontend and react developer. I have started my own business in 2018 and since 2020 I am doing fulltime software engineering at a company here in germany. I love User Interfaces and User Experience."
+                  "Als Softwareentwickler bei AboutYou habe ich die Möglichkeit gehabt, an einer Vielzahl von Projekten zu arbeiten und wertvolle Erfahrungen bei der Erstellung hochwertiger Software für Millionen von Benutzern zu sammeln. Mit Schwerpunkt auf Frontend-Entwicklung und einem starken Hintergrund im Fullstack verfüge ich über die Fähigkeiten und das Know-how, um erstklassige Produkte zu liefern, die den Bedürfnissen einer breiten Kundenbasis gerecht werden."
                 )}
-              </Typography>
+              </Text>
+              <br />
+              <Text>
+                {t(
+                  "Ich bin bekannt für meine Aufmerksamkeit für Details und mein Engagement für hervorragende Arbeit. Ich nehme mir die Zeit, die einzigartigen Anforderungen meiner Kunden zu verstehen und arbeite mit ihnen zusammen, um eine Lösung zu erstellen, die ihren Bedürfnissen entspricht. Meine technische Kompetenz in Kombination mit meinen starken Kommunikations- und Teamfähigkeiten machen mich zu einem wertvollen Bestandteil jedes Projekts."
+                )}
+              </Text>
+              <br />
+              <Text>
+                {t(
+                  "In meiner aktuellen Rolle bei AboutYou habe ich ein tiefes Verständnis des Softwareentwicklungsprozesses erlangt und meine Fähigkeiten in verschiedenen Technologien geschärft. Ob Sie eine neue Website, eine App oder eine benutzerdefinierte Softwarelösung suchen, ich bin hier, um zu helfen. Ich bin immer bereit, noch ein Stückchen weiter zu gehen, um sicherzustellen, dass meine Kunden mit dem endgültigen Produkt zufrieden sind."
+                )}
+              </Text>
             </div>
           </div>
           <Typography variant="h2" className="text-center mt-10">
@@ -51,11 +64,17 @@ export default function AboutMe() {
           <div className="flex justify-between items-center mt-10 flex-col md:flex-row">
             <div className="md:mr-24">
               <Typography className="font-semibold">Newstopia</Typography>
-              <Typography className="font-light leading-relaxed">
+              <Text>
                 {t(
-                  "Newstopia is one of my more recent journeys. I started to feel that I am not trying out enough technologies for my wellbeing, so I took a look at flutter. This project is a work in progress and will get additional features soon. At this moment it just shows the latest news."
+                  "Newstopia ist eine Flutter-App, die es Benutzern ermöglicht, die neuesten Nachrichtenartikel aus der ganzen Welt zu durchsuchen. Es nutzt eine offene API, um die neuesten Nachrichtenartikel abzurufen und stellt sie in einem benutzerfreundlichen Feed dar, mit einem Fokus auf Einfachheit und Benutzerfreundlichkeit."
                 )}
-              </Typography>
+              </Text>
+              <br />
+              <Text>
+                {t(
+                  "Newstopia wurde als Lernprojekt erstellt, um mir ein tieferes Verständnis von Flutter und den Fähigkeiten im App-Entwicklungsbereich zu vermitteln. Obwohl es nicht für den weit verbreiteten Einsatz bereit ist, zeigt die App meine Fähigkeit, mich in neue Themen einzuarbeiten und produktive Software zu erstelen."
+                )}
+              </Text>
               <ExternalLink
                 href="https://github.com/LukasGerm/newstopia"
                 className="mt-5"
