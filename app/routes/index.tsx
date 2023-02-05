@@ -45,7 +45,7 @@ export default function Index() {
   const { t } = useTranslation();
   const { activateBlog } = useLoaderData<LoaderData>();
   return (
-    <Container padding={12} className="max-w-screen-xl ml-auto mr-auto">
+    <Container padding={6} className="max-w-screen-xl ml-auto mr-auto">
       <div className="flex justify-center items-center gap-16">
         <div className="w-full md:w-2/4">
           <Heading type="light">
