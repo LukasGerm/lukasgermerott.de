@@ -1,6 +1,6 @@
 import Card from "./Card";
 import Typography from "./Typography";
-import ProfilePicture from "../assets/profile.jpg";
+import ProfilePicture from "../assets/profile.avif";
 import Button from "./Button";
 import { useTranslation } from "react-i18next";
 
