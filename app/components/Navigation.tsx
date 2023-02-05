@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Typography from "./Typography";
-import Favicon from "../assets/favicon.avif";
+import Favicon from "../assets/favicon.png";
 import Divider from "./Divider";
 import ExternalLink from "./ExternalLink";
-import GithubPicture from "../assets/github.avif";
+import GithubPicture from "../assets/github.png";
 import { Link } from "@remix-run/react";
 
-import LogoBanner from "../assets/Banner.avif";
+import LogoBanner from "../assets/Banner.png";
 import { useTranslation } from "react-i18next";
 
 interface IconProps {
