@@ -3,7 +3,7 @@ import React from "react";
 import Container from "~/components/Container";
 import Typography from "~/components/Typography";
 import ProfilePicture from "../../assets/profile.avif";
-import NewstopiaMockup from "../../assets/newstopia_mockup.avif";
+import NewstopiaMockup from "../../assets/newstopia_mockup.png";
 import MoreToCome from "../../assets/more_come.svg";
 import ExternalLink from "~/components/ExternalLink";
 import { useTranslation } from "react-i18next";
