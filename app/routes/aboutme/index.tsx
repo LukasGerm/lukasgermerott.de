@@ -25,7 +25,7 @@ export default function AboutMe() {
   return (
     <div className="bg-background">
       <div className="max-w-screen-xl ml-auto mr-auto">
-        <Container padding={12}>
+        <Container padding={6}>
           <Typography variant="h2" className="text-center">
             {t("About Me")}
           </Typography>

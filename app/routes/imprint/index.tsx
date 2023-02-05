@@ -16,7 +16,7 @@ export let meta: MetaFunction = () => {
 export default function Imprint() {
   return (
     <div className="bg-background">
-      <Container padding={12}>
+      <Container padding={6}>
         <div className="max-w-screen-xl ml-auto mr-auto ">
           <Heading>Angaben gemäß § 5 TMG</Heading>
           <div className="mt-2">

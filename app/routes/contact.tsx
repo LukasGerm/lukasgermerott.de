@@ -13,6 +13,7 @@ import ProfilePicture from "../assets/profile.avif";
 
 import { t } from "i18next";
 import Typography from "~/components/Typography";
+import Container from "~/components/Container";
 
 export let meta: MetaFunction = () => {
   return {
@@ -91,9 +92,9 @@ export default function Contact() {
   const { config } = useLoaderData<typeof loader>();
   const { t } = useTranslation();
   return (
-    <div
+    <Container
+      padding={6}
       className="flex justify-center items-center gap-16 mt-24 md:flex-row flex-col"
-      id="#contact"
     >
       <div>
         <Heading type="light">{t("Jetzt kontaktieren")}</Heading>
@@ -101,7 +102,7 @@ export default function Contact() {
       <div className="w-auto md:w-2/4">
         <ContactForm turnstileSiteKey={config.turnstileSiteKey} />
       </div>
-    </div>
+    </Container>
   );
 }
 
