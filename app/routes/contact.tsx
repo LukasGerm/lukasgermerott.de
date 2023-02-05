@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import { Toast } from "~/components/Toast";
 import Input from "~/components/Input";
 import Button from "~/components/Button";
-import ProfilePicture from "../assets/profile.jpg";
+import ProfilePicture from "../assets/profile.avif";
 
 import { t } from "i18next";
 import Typography from "~/components/Typography";

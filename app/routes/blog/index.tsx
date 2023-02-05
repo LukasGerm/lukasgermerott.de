@@ -7,7 +7,7 @@ import Typography from "~/components/Typography";
 import Search from "~/components/Search";
 import Button from "~/components/Button";
 import PostList from "~/components/PostList";
-import ProfilePicture from "../../assets/profile.jpg";
+import ProfilePicture from "../../assets/profile.avif";
 import Categories from "~/components/Categories";
 import { useEffect, useReducer } from "react";
 import { PostReducerActionType } from "~/services/posts/types/PostReducerAction";

@@ -2,7 +2,7 @@ import * as React from "react";
 
 import styles from "./styles/app.css";
 import Navigation from "./components/Navigation";
-import Favicon from "./assets/favicon.png";
+import Favicon from "./assets/favicon.avif";
 import highlight from "highlight.js/styles/atom-one-dark.css";
 import NotFoundBoundary from "./components/NotFoundBoundary";
 import type { Config } from "./services/config/types/Config";
