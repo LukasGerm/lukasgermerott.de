@@ -5,7 +5,9 @@ interface InputProps {
   placeholder?: string;
   className?: string;
   name: string;
-  value: string;
+  value?: string;
+  type?: "text" | "email" | "number";
+  required?: boolean;
 }
 
 /**
@@ -13,9 +15,10 @@ interface InputProps {
  * @returns
  */
 const Input = (props: InputProps) => {
+  const { type = "text" } = props;
   return (
     <input
-      type="text"
+      type={type}
       name={props.name}
       value={props.value}
       className={
@@ -24,6 +27,7 @@ const Input = (props: InputProps) => {
       }
       placeholder={props.placeholder || "Type text"}
       onChange={props.onChange}
+      required={props.required}
     />
   );
 };

@@ -2,7 +2,9 @@ import type { MetaFunction } from "@remix-run/node";
 import { t } from "i18next";
 import React from "react";
 import Container from "~/components/Container";
-import Typography from "~/components/Typography";
+import { Heading } from "~/components/Heading";
+import { Subheading } from "~/components/Subheading";
+import { Text } from "~/components/Text";
 
 export let meta: MetaFunction = () => {
   return {
@@ -14,36 +16,34 @@ export let meta: MetaFunction = () => {
 export default function Imprint() {
   return (
     <div className="bg-background">
-      <Container padding={6}>
-        <div className="max-w-screen-sm ml-auto mr-auto ">
-          <Typography variant="h2">Angaben gemäß § 5 TMG</Typography>
-          <Typography className="mt-2">
-            <b>Lukas Germerott Software Engineering</b>
-          </Typography>
-          <Typography>Lukas Germerott</Typography>
-          <Typography>Schildwache 9</Typography>
-          <Typography>37520 Osterode am Harz</Typography>
-          <Typography>
+      <Container padding={12}>
+        <div className="max-w-screen-xl ml-auto mr-auto ">
+          <Heading>Angaben gemäß § 5 TMG</Heading>
+          <div className="mt-2">
+            <Text>
+              <b>Lukas Germerott Software Engineering</b>
+            </Text>
+          </div>
+          <Text>Lukas Germerott</Text>
+          <Text>Schildwache 9</Text>
+          <Text>37520 Osterode am Harz</Text>
+          <Text>
             <b>Kontakt</b>
-          </Typography>
-          <Typography>Telefon: 015161228182</Typography>
-          <Typography>E-Mail: hi@lukasgermerott.de</Typography>
-          <Typography variant="h3" className="mt-2">
-            Redaktionell Verantwortlicher
-          </Typography>
-          <Typography>Lukas Germerott</Typography>
-          <Typography variant="h3" className="mt-2">
+          </Text>
+          <Text>Telefon: 015161228182</Text>
+          <Text>E-Mail: hi@lukasgermerott.de</Text>
+          <Subheading>Redaktionell Verantwortlicher</Subheading>
+          <Text>Lukas Germerott</Text>
+          <Subheading>
             Verbraucherstreitbeilegung/ Universalschlichtungsstelle
-          </Typography>
-          <Typography>
+          </Subheading>
+          <Text>
             Wir sind nicht bereit oder verpflichtet, an
             Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
             teilzunehmen.
-          </Typography>
-          <Typography variant="h3" className="mt-2">
-            Haftung für Inhalte
-          </Typography>
-          <Typography>
+          </Text>
+          <Subheading>Haftung für Inhalte</Subheading>
+          <Text>
             Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte
             auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach
             §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
@@ -55,11 +55,9 @@ export default function Imprint() {
             jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten
             Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden
             Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-          </Typography>
-          <Typography variant="h3" className="mt-2">
-            Haftung für Links
-          </Typography>
-          <Typography>
+          </Text>
+          <Subheading>Haftung für Links</Subheading>
+          <Text>
             Unser Angebot enthält Links zu externen Websites Dritter, auf deren
             Inhalte wir keinen Einfluss haben. Deshalb können wir für diese
             fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der
@@ -71,11 +69,9 @@ export default function Imprint() {
             Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung
             nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir
             derartige Links umgehend entfernen.
-          </Typography>
-          <Typography variant="h3" className="mt-2">
-            Urheberrecht
-          </Typography>
-          <Typography>
+          </Text>
+          <Subheading>Urheberrecht</Subheading>
+          <Text>
             Die durch die Seitenbetreiber erstellten Inhalte und Werke auf
             diesen Seiten unterliegen dem deutschen Urheberrecht. Die
             Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
@@ -89,7 +85,7 @@ export default function Imprint() {
             Urheberrechtsverletzung aufmerksam werden, bitten wir um einen
             entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen
             werden wir derartige Inhalte umgehend entfernen.
-          </Typography>
+          </Text>
         </div>
       </Container>
     </div>

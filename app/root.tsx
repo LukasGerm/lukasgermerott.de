@@ -36,6 +36,7 @@ export let links: LinksFunction = () => {
     { rel: "icon", href: Favicon },
   ];
 };
+
 export let handle = {
   // In the handle export, we can add a i18n key with namespaces our route
   // will need to load. This key can be a single string or an array of strings.
@@ -109,17 +110,19 @@ function Document({
         {title ? <title>{title}</title> : null}
         <Meta />
         <Links />
+        <script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
+          async
+          defer
+        ></script>
       </head>
       <body>
         {children}
+
         <RouteChangeAnnouncement />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
-        <script
-          src="https://t6ed4be50.emailsys1a.net/form/174/3747/4f16a0069a/popup.js?_g=1640262952"
-          async
-        ></script>
       </body>
     </html>
   );
@@ -135,7 +138,7 @@ function Layout({
         <Navigation activateBlog={activateBlog} />
       </header>
       <main>
-        <div className="bg-background h-screen pt-32">{children}</div>
+        <div className="bg-background py-32 min-h-screen">{children}</div>
       </main>
     </div>
   );

@@ -115,6 +115,11 @@ const Navigation = (props: { activateBlog?: boolean }) => {
               </Link>
             </li>
             <li>
+              <Link to="/contact">
+                <Typography hover>{t("Kontakt")}</Typography>
+              </Link>
+            </li>
+            <li>
               <Link to="/imprint">
                 <Typography hover>{t("Imprint")}</Typography>
               </Link>
@@ -152,6 +157,12 @@ const Navigation = (props: { activateBlog?: boolean }) => {
             <li className="p-2" onClick={handleClose}>
               <Link to="/aboutme">
                 <Typography hover>{t("About Me")}</Typography>
+              </Link>
+            </li>
+            <Divider />
+            <li className="p-2" onClick={handleClose}>
+              <Link to="/contact">
+                <Typography hover>{t("Kontakt")}</Typography>
               </Link>
             </li>
             <Divider />
