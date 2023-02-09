@@ -17,7 +17,7 @@ export default function Imprint() {
   return (
     <div className="bg-background">
       <Container padding={6}>
-        <div className="max-w-screen-xl ml-auto mr-auto ">
+        <div className="max-w-screen-lg ml-auto mr-auto ">
           <Heading>Angaben gemäß § 5 TMG</Heading>
           <div className="mt-2">
             <Text>

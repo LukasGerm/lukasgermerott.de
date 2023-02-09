@@ -24,7 +24,7 @@ export default function AboutMe() {
   const { t } = useTranslation();
   return (
     <div className="bg-background">
-      <div className="max-w-screen-xl ml-auto mr-auto">
+      <div className="max-w-screen-lg ml-auto mr-auto">
         <Container padding={6}>
           <Typography variant="h2" className="text-center">
             {t("About Me")}
