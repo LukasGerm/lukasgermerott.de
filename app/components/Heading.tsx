@@ -8,7 +8,7 @@ export const Heading = (props: TextProps) => {
       variant="h1"
       overrideSize
       className={
-        "font-light leading-tight text-5xl " +
+        "font-light leading-tight md:text-5xl text-3xl " +
         (props.type === "dark" && "text-gray-800")
       }
     >
