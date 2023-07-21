@@ -20,6 +20,7 @@ import {
 } from "@remix-run/react";
 import type { LoaderFunction, LinksFunction } from "@remix-run/node";
 import { isFeatureActive } from "./services/featureFlags/featureFlags";
+import { Footer } from "./components/Footer";
 
 export let loader: LoaderFunction = () => {
   return {
@@ -140,6 +141,7 @@ function Layout({
       <main>
         <div className="bg-background py-32 min-h-screen">{children}</div>
       </main>
+      <Footer />
     </div>
   );
 }

@@ -8,7 +8,6 @@ import ConsultingPicture from "../assets/consulting.svg";
 import { isFeatureActive } from "~/services/featureFlags/featureFlags";
 import DeskImage from "../assets/desktop.avif";
 import { useLoaderData } from "@remix-run/react";
-import React from "react";
 import type { LoaderFunction } from "@remix-run/node";
 import { t } from "i18next";
 
@@ -184,13 +183,18 @@ export default function Index() {
             </Text>
           </div>
         </div>
-        <div className="flex mt-24 items-center flex-col text-center">
-          <Subheading type="dark">{t("Jetzt Angebot anfordern")}</Subheading>
-          <div className="pt-8 flex">
-            <Button large color="primary" link="/contact">
-              {t("Kontakt")}
-            </Button>
-          </div>
+        <div className="flex justify-center mt-8">
+          <Button large color="primary" link="/services">
+            {t("Erfahre mehr")}
+          </Button>
+        </div>
+      </div>
+      <div className="flex mt-24 items-center flex-col text-center">
+        <Subheading>{t("Jetzt Angebot anfordern")}</Subheading>
+        <div className="flex">
+          <Button large color="primary" link="/contact">
+            {t("Kontakt")}
+          </Button>
         </div>
       </div>
     </Container>
