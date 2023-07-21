@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Typography from "./Typography";
 import Favicon from "../assets/favicon.png";
 import Divider from "./Divider";
-import ExternalLink from "./ExternalLink";
-import GithubPicture from "../assets/github.png";
+
 import { Link } from "@remix-run/react";
 
 import LogoBanner from "../assets/Banner.png";
@@ -115,23 +114,14 @@ const Navigation = (props: { activateBlog?: boolean }) => {
               </Link>
             </li>
             <li>
+              <Link to="/services">
+                <Typography hover>{t("Dienstleistungen")}</Typography>
+              </Link>
+            </li>
+            <li>
               <Link to="/contact">
                 <Typography hover>{t("Kontakt")}</Typography>
               </Link>
-            </li>
-            <li>
-              <Link to="/imprint">
-                <Typography hover>{t("Imprint")}</Typography>
-              </Link>
-            </li>
-            <li>
-              <ExternalLink href="https://github.com/LukasGerm">
-                <img
-                  src={GithubPicture}
-                  className="max-h-8"
-                  alt="Github link"
-                />
-              </ExternalLink>
             </li>
           </div>
         </ul>
@@ -161,25 +151,15 @@ const Navigation = (props: { activateBlog?: boolean }) => {
             </li>
             <Divider />
             <li className="p-2" onClick={handleClose}>
-              <Link to="/contact">
-                <Typography hover>{t("Kontakt")}</Typography>
+              <Link to="/services">
+                <Typography hover>{t("Dienstleistungen")}</Typography>
               </Link>
             </li>
             <Divider />
-
             <li className="p-2" onClick={handleClose}>
-              <Link to="/imprint">
-                <Typography hover>{t("Imprint")}</Typography>
+              <Link to="/contact">
+                <Typography hover>{t("Kontakt")}</Typography>
               </Link>
-            </li>
-            <li className="p-2" onClick={handleClose}>
-              <ExternalLink href="https://github.com/LukasGerm">
-                <img
-                  src={GithubPicture}
-                  className="max-h-8"
-                  alt="Github link"
-                />
-              </ExternalLink>
             </li>
           </ul>
         </div>
