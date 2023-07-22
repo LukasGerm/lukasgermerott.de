@@ -19,11 +19,11 @@ export let meta: MetaFunction = () => {
   return {
     title: "Home | Lukas Germerott",
     description: t(
-      "Hi, welcome to my website. Check it out for interesting articles and other cool new projects every week."
+      "Web Development und Beratung für Unternehmen und Privatpersonen."
     ),
     "og:title": "Lukas Germerott Softwareengineering",
     "og:description": t(
-      "Hi, welcome to my website. Check it out for interesting articles and other cool new projects every week."
+      "Web Development und Beratung für Unternehmen und Privatpersonen."
     ),
     "og:image": ProfilePicture,
   };
@@ -103,7 +103,7 @@ export default function Index() {
           />
         </div>
         <div className="flex-row md:flex-col">
-          <Heading type="light">
+          <Heading variant="h2">
             {t("Softwareentwickler aus Leidenschaft!")}
           </Heading>
           <div className="pt-12">
@@ -146,7 +146,9 @@ export default function Index() {
       </div>
       <div className="flex bg-gray-100 px-10 md:px-16 py-8 md:py-14 mt-24 flex-col">
         <div className="flex flex-col lg:flex-row justify-between items-center w-full gap-10">
-          <Heading type="dark">{t("Mein Leistungsspektrum")}</Heading>
+          <Heading variant="h2" type="dark">
+            {t("Mein Leistungsspektrum")}
+          </Heading>
           <div className="max-w-xl">
             <Text type="dark">
               {t(

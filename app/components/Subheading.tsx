@@ -6,7 +6,7 @@ export const Subheading = (props: TextProps) => {
   return (
     <Typography
       overrideSize
-      variant="h2"
+      variant="h3"
       className={
         "font-light mb-4 leading-tight text-3xl " +
         (props.type === "dark" && "text-gray-800")
