@@ -10,7 +10,7 @@ export const sendMail = async (infos: {
 
   const msg = {
     to: "lukas@lukasgermerott.com", // Change to your recipient
-    from: "lukas@lukasgermerott.com", // Change to your verified sender
+    from: "contact@lukasgermerott.de", // Change to your verified sender
     subject: "New message from your website",
     text: `You have a new message from ${infos.name} with the number ${infos.number} and email ${infos.email}. The subject was ${infos.subject}.`,
   };
