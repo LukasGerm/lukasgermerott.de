@@ -43,6 +43,7 @@ const Button = (props: React.PropsWithChildren<ButtonProps>) => {
       <Link
         to={props.link}
         className={"inline-flex items-center   " + className}
+        onClick={props.onClick}
       >
         {props.iconLeft && props.iconLeft}
         <p className={props.iconLeft ? " ml-2.5" : ""}>{props.children}</p>
