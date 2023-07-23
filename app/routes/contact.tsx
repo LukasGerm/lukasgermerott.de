@@ -14,6 +14,8 @@ import ProfilePicture from "../assets/profile.avif";
 import { t } from "i18next";
 import Typography from "~/components/Typography";
 import Container from "~/components/Container";
+import { TrackContentView } from "~/components/TrackContentView";
+import { useTrackEvent } from "~/components/hooks/useTrackEvent";
 
 export let meta: MetaFunction = () => {
   return {
@@ -92,17 +94,19 @@ export default function Contact() {
   const { config } = useLoaderData<typeof loader>();
   const { t } = useTranslation();
   return (
-    <Container
-      padding={6}
-      className="flex justify-center items-center gap-16 mt-24 md:flex-row flex-col"
-    >
-      <div>
-        <Heading type="light">{t("Jetzt kontaktieren")}</Heading>
-      </div>
-      <div className="w-auto md:w-2/4">
-        <ContactForm turnstileSiteKey={config.turnstileSiteKey} />
-      </div>
-    </Container>
+    <TrackContentView contentName="contact_form">
+      <Container
+        padding={6}
+        className="flex justify-center items-center gap-16 mt-24 md:flex-row flex-col"
+      >
+        <div>
+          <Heading type="light">{t("Jetzt kontaktieren")}</Heading>
+        </div>
+        <div className="w-auto md:w-2/4">
+          <ContactForm turnstileSiteKey={config.turnstileSiteKey} />
+        </div>
+      </Container>
+    </TrackContentView>
   );
 }
 
@@ -127,6 +131,7 @@ const ContactForm = (props: { turnstileSiteKey: string }) => {
   const { t } = useTranslation();
   const data = useActionData<typeof action>();
   const ref = useRef<HTMLFormElement>(null);
+  const trackEvent = useTrackEvent();
 
   const token = useRenderTurnstile(
     "#turnstile-container",
@@ -174,7 +179,14 @@ const ContactForm = (props: { turnstileSiteKey: string }) => {
         <input type="hidden" name="cf-turnstile-response" value={token} />
         <div id="turnstile-container"></div>
         <div className="flex justify-end">
-          <Button color="primary" type="submit" disabled={!token}>
+          <Button
+            color="primary"
+            type="submit"
+            disabled={!token}
+            onClick={() => {
+              trackEvent("contact_form_submit");
+            }}
+          >
             {t("Absenden")}
           </Button>
         </div>

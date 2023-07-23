@@ -11,7 +11,7 @@
     "paths": {
       "~/*": ["./app/*"]
     },
-    "types": ["jest", "node"],
+    "types": ["jest", "node", "@types/gtag.js"],
     "noEmit": true,
     "baseUrl": ".",
     "allowJs": false,
