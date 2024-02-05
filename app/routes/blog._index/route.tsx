@@ -15,15 +15,16 @@ import type { PostReducerAction } from "~/services/posts/types/PostReducerAction
 import Container from "~/components/Container";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
+import { metaV1 } from "@remix-run/v1-meta";
 
-export let meta: MetaFunction = () => {
-  return {
+export let meta: MetaFunction = (args) => {
+  return metaV1(args, {
     title: t("Blog") + " | Lukas Germerott",
     description: t("Cool tips and tutorials all about web development."),
     "og:title": t("Blog") + " | Lukas Germerott",
     "og:description": t("Cool tips and tutorials all about web development."),
     "og:image": ProfilePicture,
-  };
+  });
 };
 
 export let loader: LoaderFunction = async ({ request }) => {

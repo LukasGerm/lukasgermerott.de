@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import styles from "./styles/app.css";
 import Navigation from "./components/Navigation";
 import Favicon from "./assets/favicon.png";
 import highlight from "highlight.js/styles/atom-one-dark.css";
 import NotFoundBoundary from "./components/NotFoundBoundary";
 import type { Config } from "./services/config/types/Config";
+import tailwind from "./styles/app.css";
 import { getConfig } from "./services/config/config";
 import {
   Links,
@@ -14,13 +14,15 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useCatch,
+  isRouteErrorResponse,
   useLoaderData,
   useLocation,
+  useRouteError,
 } from "@remix-run/react";
 import type { LoaderFunction, LinksFunction } from "@remix-run/node";
 import { isFeatureActive } from "./services/featureFlags/featureFlags";
 import { Footer } from "./components/Footer";
+import { cssBundleHref } from "@remix-run/css-bundle";
 
 export let loader: LoaderFunction = () => {
   return {
@@ -30,13 +32,20 @@ export let loader: LoaderFunction = () => {
   };
 };
 
-export let links: LinksFunction = () => {
+/*export let links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: highlight },
     { rel: "stylesheet", href: styles },
     { rel: "icon", href: Favicon },
   ];
-};
+};*/
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: tailwind },
+  { rel: "stylesheet", href: highlight },
+
+  { rel: "icon", href: Favicon },
+];
 
 export let handle = {
   // In the handle export, we can add a i18n key with namespaces our route
@@ -146,52 +155,24 @@ function Layout({
   );
 }
 
-export function CatchBoundary() {
-  let caught = useCatch();
+export function ErrorBoundary() {
+  const error = useRouteError();
 
-  let message;
-  switch (caught.status) {
-    case 401:
-      message = (
-        <p>
-          Oops! Looks like you tried to visit a page that you do not have access
-          to.
-        </p>
-      );
-      break;
-    case 404:
-      message = <NotFoundBoundary />;
-      break;
-
-    default:
-      throw new Error(caught.data || caught.statusText);
+  // when true, this is what used to go to `CatchBoundary`
+  if (isRouteErrorResponse(error)) {
+    return (
+      <div>
+        <h1>Oops</h1>
+        <p>Status: {error.status}</p>
+        <p>{error.data.message}</p>
+      </div>
+    );
   }
 
   return (
-    <Document title={`${caught.status} ${caught.statusText}`}>
-      <Layout>{message}</Layout>
-    </Document>
-  );
-}
-
-export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error);
-  return (
-    <Document title="Error!">
-      <Layout>
-        <div className="max-w-screen-md mr-auto ml-auto">
-          <div role="alert">
-            <div className="bg-red-500 text-white font-bold rounded-t px-4 py-2">
-              There was an error
-            </div>
-            <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-              <p>{error.message}</p>
-              <p>We are working hard on it to fix it. Please come back later</p>
-            </div>
-          </div>
-        </div>
-      </Layout>
-    </Document>
+    <div>
+      <NotFoundBoundary />
+    </div>
   );
 }
 

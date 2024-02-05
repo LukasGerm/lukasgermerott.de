@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import type { ActionArgs, LoaderFunction, MetaFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { sendMail } from "~/services/email/emailService";
 import { Form, useActionData, useLoaderData } from "@remix-run/react";
@@ -10,15 +10,17 @@ import { Toast } from "~/components/Toast";
 import Input from "~/components/Input";
 import Button from "~/components/Button";
 import ProfilePicture from "../assets/profile.avif";
+import { metaV1 } from "@remix-run/v1-meta";
 
 import { t } from "i18next";
 import Typography from "~/components/Typography";
 import Container from "~/components/Container";
 import { TrackContentView } from "~/components/TrackContentView";
 import { useTrackEvent } from "~/components/hooks/useTrackEvent";
+import type { ActionFunctionArgs } from "@remix-run/node";
 
-export let meta: MetaFunction = () => {
-  return {
+export let meta: MetaFunction = (args) => {
+  return metaV1(args, {
     title: "Kontakt | Lukas Germerott",
     description: t("Kontaktiere mich jetzt für ein unverbindliches Angebot."),
     "og:title": "Lukas Germerott Softwareengineering",
@@ -26,10 +28,10 @@ export let meta: MetaFunction = () => {
       "Kontaktiere mich jetzt für ein unverbindliches Angebot."
     ),
     "og:image": ProfilePicture,
-  };
+  });
 };
 
-export async function action({ request }: ActionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const token = formData.get("cf-turnstile-response");
   const email = formData.get("email");

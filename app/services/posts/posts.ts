@@ -1,9 +1,10 @@
 import fs from "fs/promises";
 import parseFrontMatter from "front-matter";
 import showdown from "showdown";
-import path from "path";
+import { dirname, join } from "path";
 import { Post, PostAttributes } from "./types/Post";
 import invariant from "tiny-invariant";
+import { fileURLToPath } from "url";
 
 export function isInvalidPostAttributes(attributes: unknown) {
   const casted = attributes as PostAttributes;
@@ -75,7 +76,10 @@ export async function getPosts(
   search?: string | null,
   categories?: string[]
 ): Promise<Post[]> {
-  const postsPath = path.join(__dirname, "../app/posts");
+  // @ts-ignore
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = dirname(__filename);
+  const postsPath = join(__dirname, "../app/posts");
 
   let dir = await fs.readdir(postsPath);
   const converter = new showdown.Converter({
@@ -86,7 +90,7 @@ export async function getPosts(
   dir = dir.filter((filename) => filename !== ".gitkeep");
   return Promise.all(
     dir.map(async (filename) => {
-      let file = await fs.readFile(path.join(postsPath, filename));
+      let file = await fs.readFile(join(postsPath, filename));
       let { attributes, body } = parseFrontMatter(file.toString());
       invariant(
         !isInvalidPostAttributes(attributes),

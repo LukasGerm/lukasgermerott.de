@@ -1,10 +1,10 @@
 /**
  * @type {import('@remix-run/dev/config').AppConfig}
  */
-module.exports = {
+export default {
   appDirectory: "app",
   browserBuildDirectory: "public/build",
   publicPath: "/build/",
   serverBuildDirectory: "build",
-  devServerPort: 8002
+  devServerPort: 8002,
 };

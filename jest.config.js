@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-module.exports = {
+export default {
   roots: ["<rootDir>/app"],
   testRegex: "(/__tests__/.*\\.test)\\.(ts|tsx|js)$",
   testEnvironment: "jsdom",

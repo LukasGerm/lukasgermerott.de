@@ -11,15 +11,17 @@ import hljs from "highlight.js";
 import NotFoundBoundary from "~/components/NotFoundBoundary";
 import AuthorCard from "~/components/AuthorCard";
 import { useTranslation } from "react-i18next";
+import { metaV1 } from "@remix-run/v1-meta";
 
-export let meta: MetaFunction = ({ data }: { data: Post }) => {
-  return {
+export let meta: MetaFunction = (args) => {
+  const data = args.data as Post;
+  return metaV1(args, {
     title: data.title + " | Lukas Germerott",
     description: data.description,
     "og:title": data.title + " | Lukas Germerott",
     "og:description": data.description,
     "og:image": data.spoilerImageLink,
-  };
+  });
 };
 
 /**

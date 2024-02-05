@@ -11,14 +11,16 @@ import ConsultingPicture from "../../assets/consulting.svg";
 import PerformancePicture from "../../assets/performance.svg";
 import DevelopmentPicture from "../../assets/development2.svg";
 import PairprogrammingPicture from "../../assets/pairprogramming.svg";
-export let meta: MetaFunction = () => {
-  return {
+import { metaV1 } from "@remix-run/v1-meta";
+
+export let meta: MetaFunction = (args) => {
+  return metaV1(args, {
     title: t("Dienstleistungen") + " | Lukas Germerott",
     description: t("Dienstleistungen von Lukas Germerott"),
     "og:title": t("Dienstleistungen") + " | Lukas Germerott",
     "og:description": t("Dienstleistungen von Lukas Germerott"),
     "og:image": ProfilePicture,
-  };
+  });
 };
 
 export default function AboutMe() {

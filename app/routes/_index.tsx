@@ -16,9 +16,10 @@ import { Subheading } from "~/components/Subheading";
 import { Text } from "~/components/Text";
 import { TrackContentView } from "~/components/TrackContentView";
 import { useTrackEvent } from "~/components/hooks/useTrackEvent";
+import { metaV1 } from "@remix-run/v1-meta";
 
-export let meta: MetaFunction = () => {
-  return {
+export let meta: MetaFunction = (args) => {
+  return metaV1(args, {
     title: "Home | Lukas Germerott",
     description: t(
       "Web Development und Beratung für Unternehmen und Privatpersonen."
@@ -28,7 +29,7 @@ export let meta: MetaFunction = () => {
       "Web Development und Beratung für Unternehmen und Privatpersonen."
     ),
     "og:image": ProfilePicture,
-  };
+  });
 };
 
 export let loader: LoaderFunction = () => {

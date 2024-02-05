@@ -9,15 +9,16 @@ import ExternalLink from "~/components/ExternalLink";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
 import { Text } from "~/components/Text";
+import { metaV1 } from "@remix-run/v1-meta";
 
-export let meta: MetaFunction = () => {
-  return {
+export let meta: MetaFunction = (args) => {
+  return metaV1(args, {
     title: t("About Me") + " | Lukas Germerott",
     description: t("About Lukas. Learn more about him and his craft."),
     "og:title": t("About Me") + " | Lukas Germerott",
     "og:description": t("About Lukas. Learn more about him and his craft."),
     "og:image": ProfilePicture,
-  };
+  });
 };
 
 export default function AboutMe() {

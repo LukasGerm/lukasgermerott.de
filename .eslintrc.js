@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extends: ["@remix-run/eslint-config", "@remix-run/eslint-config/jest"],
   ignorePatterns: ["./node_modules"],
   rules: {
