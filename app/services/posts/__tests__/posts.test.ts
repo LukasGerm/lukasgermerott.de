@@ -24,6 +24,12 @@ jest.mock("fs/promises", () => ({
   readFile: (path: string) => Promise.resolve(testMarkdown),
 }));
 
+jest.mock("../../utils/utils", () => {
+  return {
+    getCurrentPath: jest.fn(),
+  };
+});
+
 describe("posts service", () => {
   it("Creates correct html from markdown", async () => {
     const posts = await getPosts();

@@ -5,6 +5,7 @@ import { dirname, join } from "path";
 import { Post, PostAttributes } from "./types/Post";
 import invariant from "tiny-invariant";
 import { fileURLToPath } from "url";
+import { getCurrentPath } from "../utils/utils";
 
 export function isInvalidPostAttributes(attributes: unknown) {
   const casted = attributes as PostAttributes;
@@ -76,10 +77,7 @@ export async function getPosts(
   search?: string | null,
   categories?: string[]
 ): Promise<Post[]> {
-  // @ts-ignore
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(__filename);
-  const postsPath = join(__dirname, "../app/posts");
+  const postsPath = join(getCurrentPath() + "../app/posts");
 
   let dir = await fs.readdir(postsPath);
   const converter = new showdown.Converter({

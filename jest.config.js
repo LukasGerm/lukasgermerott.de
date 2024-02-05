@@ -1,31 +1,33 @@
-/*
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
-
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 export default {
   roots: ["<rootDir>/app"],
   testRegex: "(/__tests__/.*\\.test)\\.(ts|tsx|js)$",
+  preset: "ts-jest", // or other ESM presets
   testEnvironment: "jsdom",
-  transform: {
-    "\\.[jt]sx?$": "babel-jest",
-  },
   setupFilesAfterEnv: ["./setupTests.ts"],
+  extensionsToTreatAsEsm: [".ts"],
   reporters: ["default", "jest-junit"],
-  // Automatically clear mock calls, instances and results before every test
-  clearMocks: true,
 
-  // Indicates whether the coverage information should be collected while executing the test
-  collectCoverage: true,
-
-  // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
-
-  // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  moduleNameMapper: {
+    "^(\\.{1,2}/.*)\\.js$": "$1",
+  },
+  transform: {
+    // '^.+\\.[tj]sx?$' to process js/ts with `ts-jest`
+    // '^.+\\.m?[tj]sx?$' to process js/ts/mjs/mts with `ts-jest`
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        useESM: true,
+      },
+    ],
+  },
   moduleNameMapper: {
     "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
       "<rootDir>/__mocks__/fileMock.js",
     "\\.(css|less)$": "<rootDir>/__mocks__/fileMock.js",
   },
+  transform: {
+    "node_modules/@web3-storage/.+\\.(j|t)sx?$": "ts-jest",
+  },
+  transformIgnorePatterns: ["node_modules/(?!@web3-storage/.*)"],
 };

@@ -1,10 +1,8 @@
-/**
- * @type {import('@remix-run/dev/config').AppConfig}
- */
+/** @type {import('@remix-run/dev').AppConfig} */
 export default {
-  appDirectory: "app",
-  browserBuildDirectory: "public/build",
-  publicPath: "/build/",
-  serverBuildDirectory: "build",
-  devServerPort: 8002,
+  ignoredRouteFiles: ["**/.*"],
+  // appDirectory: "app",
+  // assetsBuildDirectory: "public/build",
+  // publicPath: "/build/",
+  // serverBuildPath: "build/index.js",
 };
