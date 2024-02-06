@@ -22,7 +22,6 @@ import {
 import type { LoaderFunction, LinksFunction } from "@remix-run/node";
 import { isFeatureActive } from "./services/featureFlags/featureFlags";
 import { Footer } from "./components/Footer";
-import { cssBundleHref } from "@remix-run/css-bundle";
 
 export let loader: LoaderFunction = () => {
   return {
@@ -31,14 +30,6 @@ export let loader: LoaderFunction = () => {
     activateBlog: isFeatureActive("blog"),
   };
 };
-
-/*export let links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: highlight },
-    { rel: "stylesheet", href: styles },
-    { rel: "icon", href: Favicon },
-  ];
-};*/
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: tailwind },
