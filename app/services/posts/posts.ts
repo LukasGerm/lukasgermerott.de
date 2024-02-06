@@ -77,7 +77,7 @@ export async function getPosts(
   search?: string | null,
   categories?: string[]
 ): Promise<Post[]> {
-  const postsPath = join(getCurrentPath() + "../app/posts");
+  const postsPath = join(getCurrentPath() + "/../app/posts");
 
   let dir = await fs.readdir(postsPath);
   const converter = new showdown.Converter({
