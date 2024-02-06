@@ -6,7 +6,7 @@ orbs:
 jobs:
   install:
     docker:
-      - image: "cimg/node:18.12.1"
+      - image: "cimg/node:20.11.0"
     steps:
       - checkout
       - node/install-packages:
@@ -17,15 +17,25 @@ jobs:
             - .
   test_unit:
     docker:
-      - image: "cimg/node:18.12.1"
+      - image: "cimg/node:20.11.0"
     steps:
       - attach_workspace:
           at: ~/project
       - run: yarn test:unit
+  typecheck:
+    docker:
+      - image: "cimg/node:20.11.0"
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run: yarn typecheck
 workflows:
   lukasgermerott:
     jobs:
       - install
       - test_unit:
+          requires:
+            - install
+      - typecheck: 
           requires:
             - install

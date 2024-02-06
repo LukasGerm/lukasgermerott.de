@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:18-alpine
+FROM --platform=linux/amd64 node:20-alpine
 WORKDIR /usr/server/app
 
 COPY ./ .
