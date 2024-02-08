@@ -2,7 +2,6 @@ import { Link } from "@remix-run/react";
 import { format, parse } from "date-fns";
 import React from "react";
 import { Post } from "~/services/posts/types/Post";
-import { GridItem } from "./Grid";
 import Typography from "./Typography";
 
 interface PostTileProps {
@@ -18,7 +17,7 @@ const PostTile = (props: PostTileProps) => {
   const { post } = props;
 
   return (
-    <GridItem className="col-span-4 sm:col-span-2 lg:col-span-1">
+    <div>
       <Link to={"/blog/" + post.slug}>
         <article>
           <div className="bg-card rounded-2xl cursor-pointer">
@@ -44,7 +43,7 @@ const PostTile = (props: PostTileProps) => {
           </div>
         </article>
       </Link>
-    </GridItem>
+    </div>
   );
 };
 

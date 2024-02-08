@@ -1,6 +1,5 @@
 import React from "react";
 import type { Post } from "~/services/posts/types/Post";
-import Grid from "./Grid";
 import PostTile from "./PostTile";
 import NoData from "../assets/no_data.svg";
 import Typography from "./Typography";
@@ -22,11 +21,11 @@ const PostList = (props: { posts: Post[] }) => {
 
   return (
     <div className="max-w-screen-xl ml-auto mr-auto mt-10">
-      <Grid cols="grid-cols-4" className="gap-8">
+      <div className="gap-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {posts.map((post) => {
           return <PostTile key={post.slug} post={post} />;
         })}
-      </Grid>
+      </div>
     </div>
   );
 };
