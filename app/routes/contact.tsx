@@ -102,7 +102,7 @@ export default function Contact() {
         className="flex justify-center items-center gap-16 mt-24 md:flex-row flex-col"
       >
         <div>
-          <Heading type="light">{t("Jetzt kontaktieren")}</Heading>
+          <Heading type="light">{t("Contact now")}</Heading>
         </div>
         <div className="w-auto md:w-2/4">
           <ContactForm turnstileSiteKey={config.turnstileSiteKey} />
@@ -157,25 +157,25 @@ const ContactForm = (props: { turnstileSiteKey: string }) => {
         <Toast type="error">{t(data.error)}</Toast>
       )}
       <div className="flex gap-4 flex-col">
-        <Input name="name" placeholder={t("Vollständiger Name*")!} required />
+        <Input name="name" placeholder={t("Full name*")!} required />
         <div className="flex gap-4">
           <Input
             name="email"
             type="email"
-            placeholder={t("Email Adresse*")!}
+            placeholder={t("Email Address*")!}
             required
           />
           <Input
             name="number"
             type="number"
-            placeholder={t("Telefonnummer*")!}
+            placeholder={t("Phone Number*")!}
             required
           />
         </div>
-        <Input name="message" placeholder={t("Betreff")!} />
+        <Input name="message" placeholder={t("Subject")!} />
         <Typography className="text-sm text-gray-500">
           {t(
-            "Mit dem Absenden des Formulars stimmst du der Verarbeitung der Daten im Rahmen der Kontaktaufnahme zu."
+            "By submitting the form, you consent to the processing of the data in the context of establishing contact."
           )}
         </Typography>
         <input type="hidden" name="cf-turnstile-response" value={token} />
@@ -189,7 +189,7 @@ const ContactForm = (props: { turnstileSiteKey: string }) => {
               trackEvent("contact_form_submit");
             }}
           >
-            {t("Absenden")}
+            {t("Send")}
           </Button>
         </div>
       </div>

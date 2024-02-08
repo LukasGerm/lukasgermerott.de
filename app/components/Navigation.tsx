@@ -56,6 +56,44 @@ const CloseIcon = (props: IconProps) => {
   );
 };
 
+const NavigationElements = (props: { activateBlog?: boolean }) => {
+  const { t } = useTranslation();
+  return (
+    <>
+      <li>
+        <Link to="/">
+          <Typography hover>{t("Home")}</Typography>
+        </Link>
+      </li>
+      {props.activateBlog && (
+        <li>
+          <Link to="/blog">
+            <Typography hover>{t("Blog")}</Typography>
+          </Link>
+        </li>
+      )}
+      <li>
+        <Link to="/contact">
+          <Typography hover>{t("Contact")}</Typography>
+        </Link>
+      </li>
+      <li>
+        <Link to="https://github.com/LukasGerm" target="_blank">
+          <Typography hover>{t("GitHub")}</Typography>
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="https://www.linkedin.com/in/lukas-germerott-39ba6516b/"
+          target="_blank"
+        >
+          <Typography hover>{t("LinkedIn")}</Typography>
+        </Link>
+      </li>
+    </>
+  );
+};
+
 const Navigation = (props: { activateBlog?: boolean }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useTranslation();
@@ -96,71 +134,12 @@ const Navigation = (props: { activateBlog?: boolean }) => {
             </Link>
           </div>
           <div className="flex items-center gap-10">
-            <li>
-              <Link to="/">
-                <Typography hover>{t("Home")}</Typography>
-              </Link>
-            </li>
-            {props.activateBlog && (
-              <li>
-                <Link to="/blog">
-                  <Typography hover>{t("Blog")}</Typography>
-                </Link>
-              </li>
-            )}
-            <li>
-              <Link to="/aboutme">
-                <Typography hover>{t("About Me")}</Typography>
-              </Link>
-            </li>
-            <li>
-              <Link to="/services">
-                <Typography hover>{t("Dienstleistungen")}</Typography>
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact">
-                <Typography hover>{t("Kontakt")}</Typography>
-              </Link>
-            </li>
+            <NavigationElements activateBlog={props.activateBlog} />
           </div>
         </ul>
         <div className={(!mobileOpen ? "hidden" : "") + " md:hidden"}>
-          <ul className="flex flex-col">
-            <li className="p-2" onClick={handleClose}>
-              <Link to="/">
-                <Typography hover>{t("Home")}</Typography>
-              </Link>
-            </li>
-            <Divider />
-            {props.activateBlog && (
-              <>
-                <li className="p-2" onClick={handleClose}>
-                  <Link to="/blog">
-                    <Typography hover>{t("Blog")}</Typography>
-                  </Link>
-                </li>
-                <Divider />
-              </>
-            )}
-
-            <li className="p-2" onClick={handleClose}>
-              <Link to="/aboutme">
-                <Typography hover>{t("About Me")}</Typography>
-              </Link>
-            </li>
-            <Divider />
-            <li className="p-2" onClick={handleClose}>
-              <Link to="/services">
-                <Typography hover>{t("Dienstleistungen")}</Typography>
-              </Link>
-            </li>
-            <Divider />
-            <li className="p-2" onClick={handleClose}>
-              <Link to="/contact">
-                <Typography hover>{t("Kontakt")}</Typography>
-              </Link>
-            </li>
+          <ul className="flex flex-col gap-3 pt-3">
+            <NavigationElements activateBlog={props.activateBlog} />
           </ul>
         </div>
       </nav>
