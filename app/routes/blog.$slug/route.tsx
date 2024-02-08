@@ -47,53 +47,48 @@ export default function BlogArticle() {
   if (!post) return <NotFoundBoundary />;
 
   return (
-    <div className="bg-background">
-      <Container padding={6}>
-        <div className="text-gray-200 max-w-screen-sm ml-auto mr-auto mt-10 pb-10">
-          <Button
-            link="/blog"
-            color="text"
-            iconLeft={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                />
-              </svg>
-            }
-          >
-            {t("Back to overview")}
-          </Button>
-          <img
-            src={post.spoilerImageLink}
-            className="object-cover rounded-2xl h-96 w-full mt-5"
-            alt="Spoiler"
-          />
-          <Typography variant="h2" className="mt-5 font-light">
-            {post.title}
-          </Typography>
-          <Typography className="font-extralight">
-            {t("Published at")}{" "}
-            {format(
-              parse(post.publishedAt, "dd.MM.yyyy", new Date()),
-              "dd MMMM yyyy"
-            )}
-          </Typography>
-          <div
-            className="mt-5"
-            dangerouslySetInnerHTML={{ __html: post.body }}
-          />
-          <AuthorCard />
-        </div>
-      </Container>
-    </div>
+    <Container padding={6} className="flex-1">
+      <div className="text-gray-200 max-w-screen-sm ml-auto mr-auto mt-10 pb-10">
+        <Button
+          link="/blog"
+          color="text"
+          iconLeft={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+          }
+        >
+          {t("Back to overview")}
+        </Button>
+        <img
+          src={post.spoilerImageLink}
+          className="object-cover rounded-2xl h-96 w-full mt-5"
+          alt="Spoiler"
+        />
+        <Typography variant="h2" className="mt-5 font-light">
+          {post.title}
+        </Typography>
+        <Typography className="font-extralight">
+          {t("Published at")}{" "}
+          {format(
+            parse(post.publishedAt, "dd.MM.yyyy", new Date()),
+            "dd MMMM yyyy"
+          )}
+        </Typography>
+        <div className="mt-5" dangerouslySetInnerHTML={{ __html: post.body }} />
+        <AuthorCard />
+      </div>
+    </Container>
   );
 }

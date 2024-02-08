@@ -86,7 +86,7 @@ export default function BlogList() {
   }, [state, searchParams, submit]);
 
   return (
-    <Container padding={6} className="pt-8">
+    <Container padding={6} className="pt-8 flex-1">
       <Typography variant="h2" className="text-center">
         {t("Blog")}
       </Typography>
