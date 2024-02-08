@@ -26,5 +26,16 @@
     "To my Blog":"To my Blog",
     "About Lukas. Learn more about him and his craft.": "About Lukas. Learn more about him and his craft.",
     "Cool tips and tutorials all about web development." : "Cool tips and tutorials all about web development.",
-    "Hi, welcome to my website. Check it out for interesting articles and other cool new projects every week." : "Hi, welcome to my website. Check it out for interesting articles and other cool new projects every week."
+    "Hi, welcome to my website. Check it out for interesting articles and other cool new projects every week." : "Hi, welcome to my website. Check it out for interesting articles and other cool new projects every week.",
+    "Hi, i'm Lukas": "Hi, i'm Lukas",
+    "I am a web developer currently working at about you. I write software that many people can use. I am passionate about react, nodejs and typescript. This site mainly aims to show what I've been up to and write about things that are important to me.": "I am a web developer currently working at about you. I write software that many people can use. I am passionate about react, nodejs and typescript. This site mainly aims to show what I've been up to and write about things that are important to me.",
+    "Contact": "Contact",
+    "Read my blog": "Read my blog",
+   "Send": "Send",
+    "Full name*": "Full name*",
+    "Email Address*": "Email Address*",
+    "Phone Number*": "Phone Number*",
+    "Subject": "Subject",
+    "Contact now": "Contact now",
+    "By submitting the form, you consent to the processing of the data in the context of establishing contact.": "By submitting the form, you consent to the processing of the data in the context of establishing contact."
 }

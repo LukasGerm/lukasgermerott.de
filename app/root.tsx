@@ -134,15 +134,15 @@ function Layout({
   activateBlog,
 }: React.PropsWithChildren<{ activateBlog?: boolean }>) {
   return (
-    <div>
-      <header className="absolute w-full">
-        <Navigation activateBlog={activateBlog} />
-      </header>
-      <main>
-        <div className="bg-background py-32 min-h-screen">{children}</div>
-      </main>
+    <>
+      <div className="flex flex-col min-h-screen">
+        <header className="w-full">
+          <Navigation activateBlog={activateBlog} />
+        </header>
+        <main className="flex-grow flex">{children}</main>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

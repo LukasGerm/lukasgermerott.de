@@ -1,6 +1,5 @@
 {
     "Home": "Home",
-    "About Me": "Über mich",
     "Imprint": "Impressum",
     "Blog": "Blog",
     "Oops! Looks like you tried to visit a page that does not exist.": "Ups! Diese Seite ist nirgends zu finden.",
@@ -39,9 +38,16 @@
     "Ich biete Beratungsdienstleistungen an, um meinen Kunden bei der Erreichung ihrer Ziele zu unterstützen. Ob Sie Ihre Geschäftsprozesse verbessern, Ihre Betriebsabläufe optimieren oder eine neue Strategie entwickeln möchten, ich verfüge über die Fähigkeiten und das Know-how, um Ihnen bei Ihrem Erfolg zu helfen. Kontaktieren Sie mich, um mehr darüber zu erfahren, wie ich Sie bei Ihren Beratungsanforderungen unterstützen kann.": "Ich biete Beratungsdienstleistungen an, um meinen Kunden bei der Erreichung ihrer Ziele zu unterstützen. Ob Sie Ihre Geschäftsprozesse verbessern, Ihre Betriebsabläufe optimieren oder eine neue Strategie entwickeln möchten, ich verfüge über die Fähigkeiten und das Know-how, um Ihnen bei Ihrem Erfolg zu helfen. Kontaktieren Sie mich, um mehr darüber zu erfahren, wie ich Sie bei Ihren Beratungsanforderungen unterstützen kann.",
     "Jetzt Angebot anfordern": "Jetzt Angebot anfordern",
     "Jetzt kontaktieren": "Jetzt kontaktieren",
-    "Absenden": "Absenden",
-    "Vollständiger Name*": "Vollständiger Name*",
-    "Email Adresse*": "Email Adresse*",
-    "Telefonnummer*": "Telefonnummer*",
-    "Betreff": "Betreff"
+
+    "Hi, i'm Lukas": "Hi, ich bin Lukas",
+    "I am a web developer currently working at about you. I write software that many people can use. I am passionate about react, nodejs and typescript. This site mainly aims to show what I've been up to and write about things that are important to me.": "Ich bin ein Webentwickler, der derzeit bei about you arbeitet. Ich schreibe Software, die viele Menschen nutzen. Ich bin enthusiastisch über React, Nodejs und Typescript. Diese Seite zielt hauptsächlich darauf ab, zu zeigen, woran ich gearbeitet habe, und über Dinge zu schreiben, die mir wichtig sind.",
+    "Contact": "Kontakt",
+    "Read my blog": "Lese meinen Blog",
+    "Send": "Absenden",
+    "Full name*": "Vollständiger Name*",
+    "Email Address*": "Email Adresse*",
+    "Phone Number*": "Telefonnummer*",
+    "Subject": "Betreff",
+    "Contact now": "Jetzt kontaktieren",
+    "By submitting the form, you consent to the processing of the data in the context of establishing contact.": "Mit dem Absenden des Formulars stimmst du der Verarbeitung der Daten im Rahmen der Kontaktaufnahme zu."
 }

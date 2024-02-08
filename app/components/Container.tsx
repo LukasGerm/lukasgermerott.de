@@ -30,11 +30,7 @@ const getContainerPadding = (props: ContainerProps) => {
 const Container = (props: React.PropsWithChildren<ContainerProps>) => {
   const padding = getContainerPadding(props);
   return (
-    <div
-      className={
-        padding + " h-full " + (props.className ? props.className : "")
-      }
-    >
+    <div className={padding + " " + (props.className ? props.className : "")}>
       {props.children}
     </div>
   );

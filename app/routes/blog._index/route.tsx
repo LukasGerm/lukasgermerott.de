@@ -86,45 +86,43 @@ export default function BlogList() {
   }, [state, searchParams, submit]);
 
   return (
-    <div className="bg-background">
-      <Container padding={6}>
-        <Typography variant="h2" className="text-center">
-          {t("Blog")}
-        </Typography>
-        <section>
-          <Search dispatch={dispatch} query={state.query} />
-        </section>
-        <section>
-          <div className="max-w-screen-xl ml-auto mr-auto mt-10">
-            <Categories
-              posts={posts}
-              dispatch={dispatch}
-              activeCategories={state.categories}
-            />
+    <Container padding={6} className="pt-8">
+      <Typography variant="h2" className="text-center">
+        {t("Blog")}
+      </Typography>
+      <section>
+        <Search dispatch={dispatch} query={state.query} />
+      </section>
+      <section>
+        <div className="max-w-screen-xl ml-auto mr-auto mt-10">
+          <Categories
+            posts={posts}
+            dispatch={dispatch}
+            activeCategories={state.categories}
+          />
+        </div>
+      </section>
+      <PostList posts={posts} />
+      <section>
+        <div className="mt-10 pb-10">
+          <Typography variant="h2" className="text-center">
+            {t("Newsletter")}
+          </Typography>
+          <Typography className="text-center mt-5">
+            {t(
+              "By subscribing to my newsletter, you won't miss any blogposts."
+            )}
+          </Typography>
+          <Typography className="text-center mt-5">
+            {t("Click the button below to enter your data.")}
+          </Typography>
+          <div className="flex justify-center mt-5">
+            <Button className="rm-open-popup" color="primary" large>
+              {t("Subscribe")}
+            </Button>
           </div>
-        </section>
-        <PostList posts={posts} />
-        <section>
-          <div className="mt-10 pb-10">
-            <Typography variant="h2" className="text-center">
-              {t("Newsletter")}
-            </Typography>
-            <Typography className="text-center mt-5">
-              {t(
-                "By subscribing to my newsletter, you won't miss any blogposts."
-              )}
-            </Typography>
-            <Typography className="text-center mt-5">
-              {t("Click the button below to enter your data.")}
-            </Typography>
-            <div className="flex justify-center mt-5">
-              <Button className="rm-open-popup" color="primary" large>
-                {t("Subscribe")}
-              </Button>
-            </div>
-          </div>
-        </section>
-      </Container>
-    </div>
+        </div>
+      </section>
+    </Container>
   );
 }
