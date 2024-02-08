@@ -57,7 +57,7 @@ export default function Index() {
   return (
     <Container
       padding={6}
-      className="max-w-screen-lg ml-auto mr-auto flex items-center"
+      className="max-w-screen-lg ml-auto mr-auto flex items-center py-8"
     >
       <div className="flex justify-center items-center gap-16 flex-col-reverse md:flex-row ">
         <div>
