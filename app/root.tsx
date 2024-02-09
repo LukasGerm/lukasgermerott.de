@@ -116,6 +116,10 @@ function Document({
           async
           defer
         ></script>
+        <script
+          src="https://t6ed4be50.emailsys1a.net/form/174/3747/4f16a0069a/popup.js?_g=1707505187"
+          async
+        ></script>
       </head>
       <body>
         {children}
