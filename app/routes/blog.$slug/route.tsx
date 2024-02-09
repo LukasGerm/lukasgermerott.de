@@ -47,7 +47,7 @@ export default function BlogArticle() {
   if (!post) return <NotFoundBoundary />;
 
   return (
-    <Container padding={6} className="flex-1">
+    <Container padding={6} className="flex-1 w-full">
       <div className="text-gray-200 max-w-screen-sm ml-auto mr-auto mt-10 pb-10">
         <Button
           link="/blog"

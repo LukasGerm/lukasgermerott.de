@@ -96,10 +96,12 @@ export default function Contact() {
   const { config } = useLoaderData<typeof loader>();
   const { t } = useTranslation();
   return (
-    <TrackContentView contentName="contact_form">
+    <>
+      <TrackContentView contentName="contact_form" />
+
       <Container
         padding={6}
-        className="flex justify-center items-center gap-16 mt-24 md:flex-row flex-col"
+        className="flex justify-center items-center gap-16 md:flex-row flex-col"
       >
         <div>
           <Heading type="light">{t("Contact now")}</Heading>
@@ -108,7 +110,7 @@ export default function Contact() {
           <ContactForm turnstileSiteKey={config.turnstileSiteKey} />
         </div>
       </Container>
-    </TrackContentView>
+    </>
   );
 }
 

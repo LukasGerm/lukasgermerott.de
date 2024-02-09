@@ -24,7 +24,7 @@ const PostTile = (props: PostTileProps) => {
             <div className="sm:hover:blur-sm transition-all ease-in-out duration-300">
               <img
                 loading="lazy"
-                className="h-96 object-cover rounded-2xl select-none"
+                className="h-52 md:h-96 object-cover rounded-2xl select-none"
                 src={post.spoilerImageLink}
                 alt={post.title + " Post"}
               />
