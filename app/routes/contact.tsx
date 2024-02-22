@@ -101,7 +101,7 @@ export default function Contact() {
 
       <Container
         padding={6}
-        className="flex justify-center items-center gap-16 md:flex-row flex-col"
+        className="flex justify-center items-center gap-16 md:flex-row flex-col w-full"
       >
         <div>
           <Heading type="light">{t("Contact now")}</Heading>
